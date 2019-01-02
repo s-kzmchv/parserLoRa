@@ -2,6 +2,13 @@ import csv
 import json
 
 
+class Device:
+    def __init__(self, lastTimestamp, numOfMessage):
+        self.lastTimestamp = lastTimestamp
+        self.numOfMessage = numOfMessage
+
+
+
 def csv_dict_writer(path, fieldnames, data):
     """
     Writes a CSV file using DictWriter
@@ -13,14 +20,17 @@ def csv_dict_writer(path, fieldnames, data):
             writer.writerow(row)
 
 
-fieldnames = ['timestamp', 'id device', 'error', 'num of message']
-data = [' '] * 4
-data_prev = [' '] * 4
+fieldnames = ['timestamp', 'id device', 'error', 'num of message', 'previous timestamp difference', 'previous timestamp difference for this device']
+data = [' '] * 6
+data_prev = [' '] * 6
 res_list = []
 
+devices = {}
+
+messageCounter = 0
 
 
-f = open('syslog_dif_dB_SF11')
+f = open('syslog_SF11_for2and4')
 
 
 for line in f:
@@ -28,46 +38,41 @@ for line in f:
     if line.find("fcnt") != -1:
         numDevice = line.split(' ')[-2]
 
+        if devices.get(numDevice) == None:
+            devices[numDevice] = Device(' ',0)
+
         data[1] = numDevice
         data[2] = '0'
         data[3] = line.split('=')[1][:-2]
 
-        # if data[numDevice*4 + 1] == data_prev[numDevice*4 + 1] and data[numDevice*4 + 0] == data_prev[numDevice*4 + 0]:
-        #     data [numDevice*4 + 1] = line.split('=')[1][:-2]
-        # else:
-        #     for i in range(2):
-        #         for j in range(2):
-        #             if data[j*4 + i] == data_prev[j*4 + i]:
-        #                 data[j * 4 + i] = ' '
-        #     if data[numDevice*4 + 1] == ' ':
-        #         data[0] = data[numDevice*4 + 0]
-        #         data[4] = data[0]
-        #
-        #     data_prev = data.copy()
-        #     inner_dict = dict(zip(fieldnames, data))
-        #     res_list.append(inner_dict)
-        #     data[numDevice * 4 + 1] = line.split('=')[1][:-2]
-        #
-        #
-        #
-        # # devices[idDevice] = line.split('=')[1][:-2]
-        # # if count_not_in_table == 0:
-        # #     new_count = line.split('=')[1][:-2]
-        # #     count_not_in_table = 1
-        # # else:
-        #
         print(line.split('=')[1][:-2])
         continue
 
     if line.find("JSON up: {\"rxpk\"") != -1:
+        messageCounter += 1 # ili v konche
         tmp = line.split('JSON up:')
         d = json.loads(tmp[1])
 
-        if int(d['rxpk'][0]['tmst']) == 361757571:
-            print('olololo')
+        # if int(d['rxpk'][0]['tmst']) == 361757571:
+        #     print('olololo')
 
+        if (data[0] != ' '):
+            data[4] = str(int( int(d['rxpk'][0]['tmst']  - data[0]) ))
 
         if (data[1] != data_prev[1] and data[1] != ' ') or (data[3] != data_prev[3] and data[3] != ' '):
+
+            if data[1] != data_prev[1] and data[1] != ' ':
+                if devices[data[1]].lastTimestamp != ' ':
+                    # tmp1 = int(d['rxpk'][0]['tmst']) - int(devices[data[1]].lastTimestamp)
+                    # tmp2 = (messageCounter-1) - int(devices[data[1]].numOfMessage)
+                    # tmp3 = tmp1 / tmp2
+                    data[5] = str((int(d['rxpk'][0]['tmst']) - int(devices[data[1]].lastTimestamp)) / ((messageCounter-1) - int(devices[data[1]].numOfMessage)) )
+                else:
+                    data[5] = ' '
+            else:
+                data[5] = ' '
+            devices[data[1]].lastTimestamp = d['rxpk'][0]['tmst']
+            devices[data[1]].numOfMessage = messageCounter
             data[0] = d['rxpk'][0]['tmst']
             # data_prev = data.copy()
             # inner_dict = dict(zip(fieldnames, data))
@@ -77,40 +82,12 @@ for line in f:
             data[2] = '1'
             data[3] = ' '
             data[0] = d['rxpk'][0]['tmst']
+            data[5] = ' '
         data_prev = data.copy()
         inner_dict = dict(zip(fieldnames, data))
         res_list.append(inner_dict)
 
 
-        #
-        # # if int(d['rxpk'][0]['tmst']) == 1693903028:
-        # #     print('olololo')
-        #
-        # if data[numDevice*4 + 0] == data_prev[numDevice*4 + 0]:
-        #     data [numDevice*4 + 0] = d['rxpk'][0]['tmst']
-        # else:
-        #     for i in range(2):
-        #         for j in range(2):
-        #             if data[j*4 + i] == data_prev[j*4 + i]:
-        #                 data[j * 4 + i] = ' '
-        #
-        #     if data[numDevice*4 + 1] == ' ':
-        #         data[0] = data[numDevice*4 + 0]
-        #         data[4] = data[0]
-        #         inner_dict = dict(zip(fieldnames, data))
-        #         res_list.append(inner_dict)
-        #         data[0] = d['rxpk'][0]['tmst']
-        #         data[4] = d['rxpk'][0]['tmst']
-        #
-        #
-        #     data_prev = data.copy()
-        #     inner_dict = dict(zip(fieldnames, data))
-        #     res_list.append(inner_dict)
-        #     data[numDevice * 4 + 0] = d['rxpk'][0]['tmst']
-
-        # if time_not_in_table == 0:
-        #     new_time = d['rxpk'][0]['tmst']
-        #     time_not_in_table = 1
 
         print(d['rxpk'][0]['tmst'])
         continue
