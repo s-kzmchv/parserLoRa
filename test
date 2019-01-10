@@ -1,0 +1,460 @@
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0063013D (fcnt=40)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: RX: 40 3D 01 63 00 00 28 00 04 57 08 03 A6 37 04 7F 65 40 7A 52 C8 72 66 B2 A2 0F B1 DA FF 28 EC 4F CC 23 AA BF FB 35 43 34 3E 5C F6 12 CF A5 8F 3D 6C 1C D5 B5 38 EF 0B 0F 15 BC 91 EC 63 14 06 BF
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3160329548,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":11.2,"rssi":-45,"size":64,"data":"QD0BYwAAKAAEVwgDpjcEf2VAelLIcmayog+x2v8o7E/MI6q/+zVDND5c9hLPpY89bBzVtTjvCw8VvJHsYxQGvw=="}]}
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 6D 01 00 DD D5 68 FE EB 5E C9 6A B3 7B C6 99 47 1D 3E 10 E6 2B 43 C5 1D D7 2A DE C5 0F D6 80 8C BB 18 AE 98 C6 36 A9 1E 41 44 D3 2A 2A 9F 02 93 4E B0 0B 7E 88 49 62 CD 85 6E 59 CF 23
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3164687956,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":5.5,"rssi":-61,"size":64,"data":"QC0IbQEA3dVo/uteyWqze8aZRx0+EOYrQ8Ud1yrexQ/WgIy7GK6YxjapHkFE0yoqnwKTTrALfohJYs2FblnPIw=="}]}
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=46)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 2E 00 04 58 85 38 BA 1A 47 78 01 45 65 CB 24 FA E8 C3 2A 5A 20 10 06 25 58 20 1F 52 A9 97 D4 43 0F D1 B3 51 93 72 79 20 FA BD 06 99 89 DC AE 1F 13 3E C3 0A 17 6F 32 2D 75 7F
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3171687636,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.5,"rssi":-55,"size":64,"data":"QC0IaQEALgAEWIU4uhpHeAFFZcsk+ujDKlogEAYlWCAfUqmX1EMP0bNRk3J5IPq9BpmJ3K4fEz7DChdvMi11fw=="}]}
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=47)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 2F 00 04 6C BB 38 3D 49 89 CC 82 5C 42 0D C2 57 BB DB 18 CC EE E3 60 E5 32 DD 89 D9 1F 6B 3B A3 EE 0B 9C EF D6 34 D5 CF 6F F4 EC 0B 1A 03 24 80 EB E0 7D F7 AC F9 ED 5D B8 AB
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3178687324,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":5.8,"rssi":-42,"size":64,"data":"QC0IaQEALwAEbLs4PUmJzIJcQg3CV7vbGMzu42DlMt2J2R9rO6PuC5zv1jTVz2/07AsaAySA6+B996z57V24qw=="}]}
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:48:08 GMT #####
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 15
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 86.67%, CRC_FAIL: 13.33%, NO_CRC: 0.00%
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 15 (960 bytes)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 16 (4067 bytes)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 6 (100.00% acknowledged)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 1 (215 bytes)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (52 bytes)
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:48:08 GMT","rxnb":15,"rxok":13,"rxfw":15,"ackr":100.0,"dwnb":1,"txnb":0}}
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:150846µs) - drift=33µs
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:48:09 rhf2s008 pktfwd.sh[4652]: RX: 84 78 10 C5 C5 3C 0F 1B 5E 23 A1 D9 6D D9 85 DC 6D C9 26 02 E8 E8 7B 75 48 A8 C8 D6 92 03 D0 F0 D2 2C 7C 69 F3 91 29 96 6D D1 60 17 5E E0 4A 33 A8 88 56 A5 1C 5A 20 88 2F 72 4E CF 40 94 62 29 C2 DF 9F DE F8 5F C3 A1 83 9F E4 6C E8 4C 27 7D E0 A1 4D 58 43 DF 1C 57 91 49 98 0A DB 77 AF 02 61 95 52 FB BB F5 E8 FF E9 27 E0 CB 02 7F 95 A3 3B EE D5
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3183073883,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF7BW125","codr":"4/6","lsnr":-10.5,"rssi":-119,"size":115,"data":"hHgQxcU8DxteI6HZbdmF3G3JJgLo6Ht1SKjI1pID0PDSLHxp85Eplm3RYBde4EozqIhWpRxaIIgvck7PQJRiKcLfn974X8Ohg5/kbOhMJ33goU1YQ98cV5FJmArbd68CYZVS+7v16P/pJ+DLAn+Vozvu1Q=="}]}
+Dec 28 13:48:53 rhf2s008 rsyslogd-2007: action 'action 17' suspended, next retry is Fri Dec 28 13:50:23 2018 [try http://www.rsyslog.com/e/2007 ]
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=48)
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 30 00 04 6E 6F 23 3A A5 81 B7 22 A8 F6 79 22 77 BE C8 C8 57 A2 65 D1 98 29 94 7D 30 01 26 D1 90 8D AA 3D B7 3E 85 2E 70 1F A3 59 83 FC 0F 75 06 4B DC D2 4E 34 B2 1C D5 19 BE
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3185686996,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.0,"rssi":-49,"size":64,"data":"QC0IaQEAMAAEbm8jOqWBtyKo9nkid77IyFeiZdGYKZR9MAEm0ZCNqj23PoUucB+jWYP8D3UGS9zSTjSyHNUZvg=="}]}
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=49)
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 31 00 04 97 C7 C7 52 24 76 91 48 9D C4 8F 94 69 7E 95 D0 BD 6E 6A 92 DF 36 62 29 9E AF 13 71 10 CA 29 85 2D C6 DB CC C4 F8 5F B1 30 E6 C5 4D 53 0D 87 4F BF 01 2E 7F 11 53 52
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3192686684,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.5,"rssi":-40,"size":64,"data":"QC0IaQEAMQAEl8fHUiR2kUidxI+UaX6V0L1uapLfNmIpnq8TcRDKKYUtxtvMxPhfsTDmxU1TDYdPvwEufxFTUg=="}]}
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=50)
+Dec 28 13:48:53 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 32 00 04 F6 99 8F B2 E7 AA 2B BB 8E 75 8D 44 64 1F C5 59 DE 6D 92 5D 28 97 78 DE AB A8 7E 7C AC 2A E7 1C 1B 4C A9 6A C6 03 74 BA BC DF EF 55 F7 05 7C 35 83 12 A8 74 B0 A8 2A
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3199686364,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.8,"rssi":-59,"size":64,"data":"QC0IaQEAMgAE9pmPsueqK7uOdY1EZB/FWd5tkl0ol3jeq6h+fKwq5xwbTKlqxgN0urzf71X3BXw1gxKodLCoKg=="}]}
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=51)
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 33 00 04 BF 56 4B 10 07 20 12 81 25 34 82 D7 C4 CD 18 CA F1 E6 C2 64 6C CC 74 31 93 C1 A4 0C 1C 9A 0A 32 1E 49 33 8B DA 1B 8E CF AF C8 F5 62 E8 9C 30 EF BE B6 EA 72 C8 C3 81
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3206686044,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":5.2,"rssi":-39,"size":64,"data":"QC0IaQEAMwAEv1ZLEAcgEoElNILXxM0YyvHmwmRszHQxk8GkDByaCjIeSTOL2huOz6/I9WLonDDvvrbqcsjDgQ=="}]}
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=52)
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 34 00 04 55 61 FD FE 9E EE 5D BC 3A 7A AA 16 B4 B0 CD EA D3 6E B9 A4 F4 B5 BD B3 75 4F 21 08 3D AF B0 CE FF CA 01 7B 15 3A E6 8C E8 9D E5 3E 87 E2 74 B0 95 9B 90 1C BF 64 F1
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3213685724,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.2,"rssi":-55,"size":64,"data":"QC0IaQEANAAEVWH9/p7uXbw6eqoWtLDN6tNuuaT0tb2zdU8hCD2vsM7/ygF7FTrmjOid5T6H4nSwlZuQHL9k8Q=="}]}
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=53)
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 35 00 04 31 95 2B BF BA 23 0A 2C D1 FF 01 95 B1 9E 4A 73 81 F8 5C BF 94 A5 2D 48 C5 51 43 C3 2A 77 3B E8 E8 E1 9B 6C 2F 7E FE 0D 6B F1 07 CB 0C D4 E3 BB 9A 40 92 2F 14 4D C3
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3220685404,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.8,"rssi":-40,"size":64,"data":"QC0IaQEANQAEMZUrv7ojCizR/wGVsZ5Kc4H4XL+UpS1IxVFDwyp3O+jo4ZtsL37+DWvxB8sM1OO7mkCSLxRNww=="}]}
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=54)
+Dec 28 13:48:54 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 36 00 04 15 0F EE A8 61 33 33 15 96 BB 9B D5 5A 51 08 E8 59 4F 25 A4 7C E7 53 2B 5D 69 03 13 DB 25 EF C8 AA 1D F3 7C 61 8C 21 E2 08 13 61 C9 4D 54 C1 43 E2 C7 9A 73 FE 7C 3C
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3227685084,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.8,"rssi":-53,"size":64,"data":"QC0IaQEANgAEFQ/uqGEzMxWWu5vVWlEI6FlPJaR851MrXWkDE9sl78iqHfN8YYwh4ggTYclNVMFD4seac/58PA=="}]}
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 7 ms
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=55)
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 37 00 04 01 BA 2D F8 8F 5E 52 5C E0 19 40 2D CF 55 A7 FD BA 77 BF 06 69 08 8C 15 B7 09 6E C9 78 6E 38 17 E4 37 A5 42 1B A8 59 6E CC 86 E5 22 5C CC 76 8C 7E 04 09 2A 63 54 4D
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3234684764,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.8,"rssi":-39,"size":64,"data":"QC0IaQEANwAEAbot+I9eUlzgGUAtz1Wn/bp3vwZpCIwVtwluyXhuOBfkN6VCG6hZbsyG5SJczHaMfgQJKmNUTQ=="}]}
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=56)
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 38 00 04 3F F3 29 42 C4 B2 9E DF 15 01 4D 3A 4D 05 A6 6E DC 73 06 6B 5F 66 99 9A 86 24 71 4E 86 D3 64 73 0F 31 F8 18 50 E6 D4 21 35 13 58 EF 5C 33 7C D1 36 58 3F 45 A0 5A FC
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3241684444,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.0,"rssi":-55,"size":64,"data":"QC0IaQEAOAAEP/MpQsSynt8VAU06TQWmbtxzBmtfZpmahiRxTobTZHMPMfgYUObUITUTWO9cM3zRNlg/RaBa/A=="}]}
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:49:08 GMT #####
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 10
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 90.00%, CRC_FAIL: 10.00%, NO_CRC: 0.00%
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 10 (691 bytes)
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 11 (2818 bytes)
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:49:28 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 6 (100.00% acknowledged)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 0 (0 bytes)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (0 bytes)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:49:08 GMT","rxnb":10,"rxok":9,"rxfw":10,"ackr":100.0,"dwnb":0,"txnb":0}}
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_RESP received  - token[187:8] :)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: JSON down: {"txpk":{"codr":"4/5","data":"0J7Qm9Cv0KDQnCEg0JPQntCb0JDQmtCi0JXQmtCeINCe0J/QkNCh0J3QntCh0KLQmCEhMQ==","datr":"SF12BW125","freq":868,"ipol":true,"modu":"LORA","ncrc":false,"powe":0,"rfch":1,"size":52,"tmst":1}}
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: ERROR: Packet REJECTED, unsupported frequency - 868000000 (min:0,max:0)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:150875µs) - drift=29µs
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=57)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 39 00 04 FB 26 79 A9 CA 32 3A F2 57 B0 56 68 AE B0 ED 5E AA AE F7 E4 80 A0 EE 69 32 6C CC C7 05 B8 3A C3 13 E8 9F 15 F2 10 E7 5A A5 67 B3 1F BC 13 97 3D F5 57 0B B3 50 87 27
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3248684124,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.8,"rssi":-39,"size":64,"data":"QC0IaQEAOQAE+yZ5qcoyOvJXsFZorrDtXqqu9+SAoO5pMmzMxwW4OsMT6J8V8hDnWqVnsx+8E5c99VcLs1CHJw=="}]}
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=58)
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 3A 00 04 FD 74 4E A2 0F 31 1C ED 53 52 9B D0 09 7F 2F 4E C4 EF 03 F6 C3 E3 B3 D3 EC A8 50 B2 4C 82 A6 7D 11 49 2F 10 43 BF F5 4A DF 4E 2D 42 55 41 4C 31 8E 5D F4 5F EE 4F 56
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3255683804,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.2,"rssi":-51,"size":64,"data":"QC0IaQEAOgAE/XROog8xHO1TUpvQCX8vTsTvA/bD47PT7KhQskyCpn0RSS8QQ7/1St9OLUJVQUwxjl30X+5PVg=="}]}
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:49:29 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=59)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 3B 00 04 6E 6E 25 23 BD 6F 59 2C 7A 06 1F 88 B2 8F 99 F3 21 50 1A 47 54 F8 D3 B3 A7 9C C8 55 7A D9 31 04 50 16 E6 15 C1 41 78 30 B8 83 85 83 83 AD 0A AE F3 2A 05 68 4F 50 AA
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3262683492,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.2,"rssi":-40,"size":64,"data":"QC0IaQEAOwAEbm4lI71vWSx6Bh+Iso+Z8yFQGkdU+NOzp5zIVXrZMQRQFuYVwUF4MLiDhYODrQqu8yoFaE9Qqg=="}]}
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=60)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 3C 00 04 39 CF FF 6C 73 D4 33 E2 93 2C 41 8A 0A E4 DE DA 2A 5C ED CC 08 64 C8 74 F6 34 99 6B F5 FA 55 F0 17 36 64 8D 39 8E 3F 9D 57 49 40 A0 95 3C 45 99 7B BE 36 49 A9 1C 82
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3269683172,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.8,"rssi":-49,"size":64,"data":"QC0IaQEAPAAEOc//bHPUM+KTLEGKCuTe2ipc7cwIZMh09jSZa/X6VfAXNmSNOY4/nVdJQKCVPEWZe742Sakcgg=="}]}
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=61)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 3D 00 04 C2 C3 EB AA EE F8 F5 29 34 17 C9 E2 63 55 E7 C0 E0 EF 75 CA 66 78 EC C9 64 0A 5C 08 A6 69 02 C1 47 4F B9 54 2E DF C7 47 FA AC BA 57 9B 75 82 4A 7F 53 46 43 DE 50 CF
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3276682844,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":5.2,"rssi":-39,"size":64,"data":"QC0IaQEAPQAEwsPrqu749Sk0F8niY1XnwODvdcpmeOzJZApcCKZpAsFHT7lULt/HR/qsulebdYJKf1NGQ95Qzw=="}]}
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 2E 38 55 6C D0 80 82 41 56 74 74 2A C1 30 71 A0 54 F3 3A 20 0D 30 8B 39 37 3C 2B 41 E2 3B 9F CE 9B 0E F6 55 61 14 7B 2C CB DD B0 AA 62 53 51 C7 2A 14 90 CD 69 72 B4 CB 60 C7
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3283682508,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":-1.8,"rssi":-67,"size":64,"data":"QC0IaQEALjhVbNCAgkFWdHQqwTBxoFTzOiANMIs5NzwrQeI7n86bDvZVYRR7LMvdsKpiU1HHKhSQzWlytMtgxw=="}]}
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=63)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 3F 00 04 E8 FD 3C 9C 24 26 89 51 B5 3E 26 0A E7 5F F0 DF 58 DB A7 B8 FD 4D 7C EA 48 16 C4 9D ED 2C 18 F3 E6 E1 F6 E4 E6 53 AC FA 81 1B A9 7F 5E 05 CA 42 3A 61 DA 22 52 C7 4C
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3290682212,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.8,"rssi":-45,"size":64,"data":"QC0IaQEAPwAE6P08nCQmiVG1PiYK51/w31jbp7j9TXzqSBbEne0sGPPm4fbk5lOs+oEbqX9eBcpCOmHaIlLHTA=="}]}
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 0169082D (fcnt=64)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 40 00 04 CD F6 3A 38 AE 6D 49 D7 E8 26 54 46 43 19 1A 29 E5 01 F8 3E 49 95 46 29 0B 1C 56 7A B3 70 01 9F 3C 0B 4B D3 54 CD 24 C4 7F C1 51 E3 94 84 58 78 8A 5B 7D 81 49 AD 10
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3297681892,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.5,"rssi":-61,"size":64,"data":"QC0IaQEAQAAEzfY6OK5tSdfoJlRGQxkaKeUB+D5JlUYpCxxWerNwAZ88C0vTVM0kxH/BUeOUhFh4ilt9gUmtEA=="}]}
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:50:08 GMT #####
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 8
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 87.50%, CRC_FAIL: 12.50%, NO_CRC: 0.00%
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 8 (512 bytes)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 9 (2221 bytes)
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:50:08 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 6 (100.00% acknowledged)
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 1 (215 bytes)
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (52 bytes)
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:50:08 GMT","rxnb":8,"rxok":7,"rxfw":8,"ackr":100.0,"dwnb":1,"txnb":0}}
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:50:09 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:150905µs) - drift=30µs
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:51:00 rhf2s008 rsyslogd-2007: action 'action 17' suspended, next retry is Fri Dec 28 13:52:30 2018 [try http://www.rsyslog.com/e/2007 ]
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 2D 08 69 01 00 01 00 00 41 76 B0 14 CF CC 2C 86 6F B6 DC 15 A1 5A 19 03 03 BB 0F D4 53 69 52 5C 5A 6B B7 71 A6 80 91 E2 34 DE EE 2A 91 32 E7 AA 15 74 E6 B2 58 1B 80 C5 31 7B 97 87 74 F4 A9
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3304681588,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":-1.8,"rssi":-44,"size":64,"data":"QC0IaQEAAQAAQXawFM/MLIZvttwVoVoZAwO7D9RTaVJcWmu3caaAkeI03u4qkTLnqhV05rJYG4DFMXuXh3T0qQ=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 45 00 04 45 76 05 27 8F 91 39 7C 6E 5D F9 BE 7E 19 10 4D 03 8D 4E 3C EE BB B7 09 20 21 F4 9C AD F1 51 E3 00 18 2F 3F 04 B7 C8 D1 D3 64 82 AE 4E 10 24 62 1D ED 7E 14 B8 DD 91
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3312083940,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":5.2,"rssi":-41,"size":64,"data":"QCEBRAAARQAERXYFJ4+ROXxuXfm+fhkQTQONTjzuu7cJICH0nK3xUeMAGC8/BLfI0dNkgq5OECRiHe1+FLjdkQ=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=70)
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 46 00 04 A5 70 2A 67 D7 1B D6 CB 53 90 31 7C F1 EB 00 6B 66 06 70 88 ED A9 BD D9 15 98 1C 8D 56 22 60 F3 E7 15 AA 80 57 94 34 65 C2 5D C7 C2 5A 73 B5 EC 40 D2 D6 AB 1F 70 C2
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3319083596,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.5,"rssi":-55,"size":64,"data":"QCEBRAAARgAEpXAqZ9cb1stTkDF88esAa2YGcIjtqb3ZFZgcjVYiYPPnFaqAV5Q0ZcJdx8Jac7XsQNLWqx9wwg=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=71)
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 47 00 04 F9 21 14 DC BD 1F 29 79 12 E6 61 85 BC 73 B2 31 EA 56 9D B2 D2 70 5E AA 18 09 F7 E8 0B 40 F5 DE DE 0B 85 80 D3 E9 B7 F4 AE 97 94 97 95 EC FE 91 CA C5 47 F0 87 4E 9A
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3326083220,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.0,"rssi":-45,"size":64,"data":"QCEBRAAARwAE+SEU3L0fKXkS5mGFvHOyMepWnbLScF6qGAn36AtA9d7eC4WA0+m39K6XlJeV7P6RysVH8IdOmg=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=72)
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 48 00 04 F5 93 C9 8F 25 46 B1 FF A1 DB E1 FE 18 EC A7 45 84 56 BB 16 AA D0 E5 0E 8C 60 05 B7 1F 3E DD E8 8E F8 F7 D8 D6 15 33 52 DC BE 73 AE FB 44 1C 5C 5E 69 7F 92 89 6B 17
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3333082860,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.5,"rssi":-53,"size":64,"data":"QCEBRAAASAAE9ZPJjyVGsf+h2+H+GOynRYRWuxaq0OUOjGAFtx8+3eiO+PfY1hUzUty+c677RBxcXml/kolrFw=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=73)
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 49 00 04 82 1E 51 D0 99 18 CC C7 AF 3A 6D E9 10 57 AD D2 F3 CD B0 AA EE 94 4A A0 74 E0 68 B3 C7 0B 6D CA CE CC EA 13 69 09 D4 B1 93 9A 1A A7 9A 6A 88 C4 95 B1 E2 10 1D D9 88
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3340082492,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.8,"rssi":-45,"size":64,"data":"QCEBRAAASQAEgh5R0JkYzMevOm3pEFet0vPNsKrulEqgdOBos8cLbcrOzOoTaQnUsZOaGqeaaojElbHiEB3ZiA=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=74)
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 4A 00 04 7A EF 29 10 6B FA 55 82 6E 06 DB BE 63 71 0F A5 20 47 2C A6 94 2F DF 88 4A 34 F8 4C A7 3A ED FA B9 A4 97 D0 30 FB 4A 7E 6B 31 C4 8B C3 A4 48 AC 95 A1 E0 B9 17 7F 56
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3347082124,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.0,"rssi":-48,"size":64,"data":"QCEBRAAASgAEeu8pEGv6VYJuBtu+Y3EPpSBHLKaUL9+ISjT4TKc67fq5pJfQMPtKfmsxxIvDpEislaHguRd/Vg=="}]}
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:00 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=75)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 4B 00 04 DC 79 0B 75 31 CE AA 16 DF B6 42 AE B2 86 64 B8 F2 5A FE A5 A6 74 F0 58 4D 66 F3 32 C1 09 C6 50 9F 28 E8 92 7B 52 FE 9F E6 D0 F7 37 09 60 9E 4F 39 6C 37 E4 BB 92 5A
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3354081756,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.8,"rssi":-45,"size":64,"data":"QCEBRAAASwAE3HkLdTHOqhbftkKusoZkuPJa/qWmdPBYTWbzMsEJxlCfKOiSe1L+n+bQ9zcJYJ5POWw35LuSWg=="}]}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=76)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 4C 00 04 7D 63 41 14 BA 17 81 F0 16 F2 62 6F 73 0F 78 4B F6 FB 55 C8 33 11 A5 8C 2D 7A D1 51 1C 48 2D CC 98 80 71 30 C2 48 C0 79 A0 B3 FF 07 4F 6C 4C 8C 3C 60 C4 8C 9A 56 86
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3361081380,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.2,"rssi":-53,"size":64,"data":"QCEBRAAATAAEfWNBFLoXgfAW8mJvcw94S/b7VcgzEaWMLXrRURxILcyYgHEwwkjAeaCz/wdPbEyMPGDEjJpWhg=="}]}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:51:08 GMT #####
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 9
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 77.78%, CRC_FAIL: 22.22%, NO_CRC: 0.00%
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 9 (576 bytes)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 10 (2483 bytes)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 5 (100.00% acknowledged)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 0 (0 bytes)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (0 bytes)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:51:08 GMT","rxnb":9,"rxok":7,"rxfw":9,"ackr":100.0,"dwnb":0,"txnb":0}}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_RESP received  - token[92:43] :)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON down: {"txpk":{"codr":"4/5","data":"0J7Qm9Cv0KDQnCEg0JPQntCb0JDQmtCi0JXQmtCeINCe0J/QkNCh0J3QntCh0KLQmCEhMQ==","datr":"SF12BW125","freq":868,"ipol":true,"modu":"LORA","ncrc":false,"powe":0,"rfch":1,"size":52,"tmst":1}}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: ERROR: Packet REJECTED, unsupported frequency - 868000000 (min:0,max:0)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:150936µs) - drift=31µs
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=77)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 4D 00 04 59 96 A1 FF 08 13 3A 68 FD BD 08 88 AA 4B 19 02 AA 67 10 86 BC AA 50 DC 32 5C 62 E4 6D 41 4B E5 DF E5 13 FE E0 97 46 5E 45 DD 8C FA 3B C6 9D 65 F7 9F FC 6F 48 5D AE
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3368082004,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.5,"rssi":-45,"size":64,"data":"QCEBRAAATQAEWZah/wgTOmj9vQiIqksZAqpnEIa8qlDcMlxi5G1BS+Xf5RP+4JdGXkXdjPo7xp1l95/8b0hdrg=="}]}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=78)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 4E 00 04 13 8A 9A 18 3E 5A FB 7B F2 3B B8 ED 58 08 5A 67 BA 1C 54 C9 E1 8A EB 59 B8 8F 1C A1 46 48 12 F7 F5 AF 29 11 F7 11 60 51 5C 6F 74 32 3F C7 4F C3 18 81 E2 6B 18 DB 4E
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3375081644,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.5,"rssi":-55,"size":64,"data":"QCEBRAAATgAEE4qaGD5a+3vyO7jtWAhaZ7ocVMnhiutZuI8coUZIEvf1rykR9xFgUVxvdDI/x0/DGIHiaxjbTg=="}]}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=79)
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 4F 00 04 D8 37 B2 96 83 51 F3 73 31 93 FC E7 E2 17 1A EF 87 A9 E4 A7 57 DA DE 52 28 92 0B 9F DB 8A AB 7B 82 82 37 62 DF 15 50 2E C0 EF B1 4D 9F 37 FC 11 BA FE 63 5B 69 31 A2
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3382081276,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.5,"rssi":-45,"size":64,"data":"QCEBRAAATwAE2DeyloNR83Mxk/zn4hca74ep5KdX2t5SKJILn9uKq3uCgjdi3xVQLsDvsU2fN/wRuv5jW2kxog=="}]}
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:51:35 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 50 00 04 85 88 60 6E 47 43 97 45 C7 F0 09 55 A3 3C 91 93 2F 2D A5 49 B1 3B D7 5E 11 3A AD 0B 77 96 1C B6 EB 58 30 5C 28 13 E6 79 4F 18 4A 3C D8 AF 82 E6 34 29 2C 9C AC 86 1D
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3389081860,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.8,"rssi":-61,"size":64,"data":"QCEBRAAAUAAEhYhgbkdDl0XH8AlVozyRky8tpUmxO9deETqtC3eWHLbrWDBcKBPmeU8YSjzYr4LmNCksnKyGHQ=="}]}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 51 00 04 EA 6D 97 35 B6 F7 5E EA E3 B5 8F E6 D8 B1 09 99 AD D8 59 48 EF EE 3B 9E 30 A6 F2 1A D2 BA 99 4E 48 90 6E 5C A8 93 0A 0E 55 75 44 3C 1E 69 E8 E6 38 29 24 0E A4 82 1E
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3396081508,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":0.5,"rssi":-53,"size":64,"data":"QCEBRAAAUQAE6m2XNbb3XurjtY/m2LEJma3YWUjv7jueMKbyGtK6mU5IkG5cqJMKDlV1RDweaejmOCkkDqSCHg=="}]}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 52 00 04 C6 E2 AF A8 0E 3C 00 FA 75 3E 8E E1 59 08 1E 8C 3C 93 82 0C 38 BD DA 64 C9 F6 ED A9 45 26 BE CC 41 76 FA 7F 40 BA CF 50 71 0F 29 59 ED E0 B1 4A 27 2F 04 8B 6E 0E 0C
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3403081132,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":0.2,"rssi":-52,"size":64,"data":"QCEBRAAAUgAExuKvqA48APp1Po7hWQgejDyTggw4vdpkyfbtqUUmvsxBdvp/QLrPUHEPKVnt4LFKJy8Ei24ODA=="}]}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 53 00 04 03 F9 8C AF 01 58 81 BF E9 49 E9 18 71 01 4F 15 26 BC CB 48 FD D9 EE B7 65 F3 0C B8 B3 01 FF 58 1F 96 F3 53 60 83 01 EF 69 BA A3 F5 CE F6 FC 5E 22 43 BF B5 21 6D D3
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3410081756,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":5.2,"rssi":-45,"size":64,"data":"QCEBRAAAUwAEA/mMrwFYgb/pSekYcQFPFSa8y0j92e63ZfMMuLMB/1gflvNTYIMB72m6o/XO9vxeIkO/tSFt0w=="}]}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 54 00 04 99 6E 91 BB B4 A5 FF 2C AD 7A 03 98 EC 5E 81 AB E5 A2 52 EB 38 3E 38 F9 CB C4 F4 6D 44 A4 F0 14 D8 09 02 45 75 68 4B E9 BC F3 52 AA 55 4E 7C E6 31 47 78 1C 7D 45 E6
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3417081388,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.8,"rssi":-77,"size":64,"data":"QCEBRAAAVAAEmW6Ru7Sl/yytegOY7F6Bq+WiUus4Pjj5y8T0bUSk8BTYCQJFdWhL6bzzUqpVTnzmMUd4HH1F5g=="}]}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:52:08 GMT #####
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 8
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 37.50%, CRC_FAIL: 62.50%, NO_CRC: 0.00%
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 8 (512 bytes)
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 9 (2222 bytes)
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 6 (100.00% acknowledged)
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 1 (215 bytes)
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (52 bytes)
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:52:08 GMT","rxnb":8,"rxok":3,"rxfw":8,"ackr":100.0,"dwnb":1,"txnb":0}}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:150967µs) - drift=31µs
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 55 00 04 9B DD F7 08 4D 32 EB 50 CF FA AF B8 89 42 1C 1B 6C BB DE 98 62 84 26 E5 B1 65 DD 11 F4 36 73 3F D2 57 06 C0 EA 09 7C 22 AC FC B8 A2 B6 A6 B4 69 38 B1 AF 6C F9 13 E6
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3424081028,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.2,"rssi":-46,"size":64,"data":"QCEBRAAAVQAEm933CE0y61DP+q+4iUIcG2y73phihCblsWXdEfQ2cz/SVwbA6gl8Iqz8uKK2prRpOLGvbPkT5g=="}]}
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:52:17 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 56 00 04 50 FC 7F D8 EA F3 CE 63 5D 0A 08 2A F3 82 93 D0 00 76 F3 DD 12 5E C5 16 1A FB 6C 33 D5 D2 C4 44 EA A2 06 5C E9 59 E4 90 C8 72 CF 3C 2F DB C7 F4 96 A1 E1 D2 EB 63 8C
+Dec 28 13:53:06 rhf2s008 rsyslogd-2007: action 'action 17' suspended, next retry is Fri Dec 28 13:54:36 2018 [try http://www.rsyslog.com/e/2007 ]
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3431080660,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.0,"rssi":-49,"size":64,"data":"QCEBRAAAVgAEUPx/2OrzzmNdCggq84KT0AB2890SXsUWGvtsM9XSxETqogZc6VnkkMhyzzwv28f0lqHh0utjjA=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 57 00 04 6B FC 04 69 F6 F4 04 0D 45 DF 4A BB A3 EF EB FE D6 54 A7 6D 9C BF 50 01 2C F2 29 DA 11 D9 4A 83 FA 12 45 CF A3 0A BE C8 F7 28 C6 1F 87 E2 E2 BE 79 56 24 5A 8C 44 6A
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3438080308,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":0.2,"rssi":-47,"size":64,"data":"QCEBRAAAVwAEa/wEafb0BA1F30q7o+/r/tZUp22cv1ABLPIp2hHZSoP6EkXPowq+yPcoxh+H4uK+eVYkWoxEag=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 58 00 04 9C 7C 0B E1 ED 0F 54 56 F3 AC 0B 9C 8D D4 39 A7 3A CF AD 27 DA A0 03 F6 09 CF 2A C2 BD 9A 73 78 9E 1F 13 98 47 7B 85 EF F9 D8 97 38 51 0B 5C C1 36 7E 77 49 6C B8 61
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3445080908,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.0,"rssi":-59,"size":64,"data":"QCEBRAAAWAAEnHwL4e0PVFbzrAucjdQ5pzrPrSfaoAP2Cc8qwr2ac3ieHxOYR3uF7/nYlzhRC1zBNn53SWy4YQ=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 59 00 04 9C 18 3B E9 FC 25 25 C9 49 4A 72 95 77 08 03 DB 39 54 ED 38 26 C3 D1 8C C6 7D 81 F3 04 4B 87 EB 29 16 AD 83 10 7E C9 48 7B 52 A7 1F 07 4C C5 9E 9A DB 22 13 0F 38 72
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3452080548,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":0.8,"rssi":-42,"size":64,"data":"QCEBRAAAWQAEnBg76fwlJclJSnKVdwgD2zlU7Tgmw9GMxn2B8wRLh+spFq2DEH7JSHtSpx8HTMWemtsiEw84cg=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=90)
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 5A 00 04 56 FC C4 81 78 81 E4 3A 8A AC C7 D1 BF 32 B9 28 E2 11 C1 DE 00 B0 18 95 74 B0 E8 AA A4 32 9C A3 D3 EA 9D C0 F8 DC E2 56 66 91 84 46 96 C3 B7 AD A0 6C 9C D7 27 BF EE
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3459081148,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.5,"rssi":-49,"size":64,"data":"QCEBRAAAWgAEVvzEgXiB5DqKrMfRvzK5KOIRwd4AsBiVdLDoqqQynKPT6p3A+NziVmaRhEaWw7etoGyc1ye/7g=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=91)
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 5B 00 04 15 E4 45 FA 0F DD 56 A7 E9 98 21 AC EB B9 96 0B E3 04 05 37 79 66 2D 1B C2 D2 5A AE 1B 97 C7 63 1E 4D DE C0 05 0B 70 C3 7B A5 59 5C 8D 74 4B A5 2C 68 AB 7A 7A 53 3E
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3466080780,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.5,"rssi":-45,"size":64,"data":"QCEBRAAAWwAEFeRF+g/dVqfpmCGs67mWC+MEBTd5Zi0bwtJarhuXx2MeTd7ABQtww3ulWVyNdEulLGirenpTPg=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=92)
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 5C 00 04 BB 97 95 2D A2 76 32 E9 D3 CC 1E 14 38 3F 86 2F 50 FC 72 EC 44 70 21 99 C8 65 7E D1 02 2C DA 24 DC A7 F8 BB 96 71 40 A8 19 B3 A6 C8 22 2E 06 03 F9 A1 22 D6 20 89 2A
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3473080428,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.0,"rssi":-48,"size":64,"data":"QCEBRAAAXAAEu5eVLaJ2MunTzB4UOD+GL1D8cuxEcCGZyGV+0QIs2iTcp/i7lnFAqBmzpsgiLgYD+aEi1iCJKg=="}]}
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=93)
+Dec 28 13:53:06 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 5D 00 04 90 29 AA A1 B9 84 59 49 47 48 4C 69 EF 72 7C 7A F3 64 F2 EE BE 76 86 54 D0 88 5A EC B1 96 BD 2D E3 34 8F BF D6 0E 3D 73 2A 58 10 BA 2D B5 91 CE FF 4A 8D B4 2D B0 DD
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3480080060,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.5,"rssi":-46,"size":64,"data":"QCEBRAAAXQAEkCmqobmEWUlHSExp73J8evNk8u6+doZU0Iha7LGWvS3jNI+/1g49cypYELottZHO/0qNtC2w3Q=="}]}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:53:08 GMT #####
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 9
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 44.44%, CRC_FAIL: 55.56%, NO_CRC: 0.00%
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 9 (576 bytes)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 10 (2485 bytes)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 6 (100.00% acknowledged)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 0 (0 bytes)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (0 bytes)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:53:08 GMT","rxnb":9,"rxok":4,"rxfw":9,"ackr":100.0,"dwnb":0,"txnb":0}}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_RESP received  - token[190:63] :)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON down: {"txpk":{"codr":"4/5","data":"0J7Qm9Cv0KDQnCEg0JPQntCb0JDQmtCi0JXQmtCeINCe0J/QkNCh0J3QntCh0KLQmCEhMQ==","datr":"SF12BW125","freq":868,"ipol":true,"modu":"LORA","ncrc":false,"powe":0,"rfch":1,"size":52,"tmst":1}}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: ERROR: Packet REJECTED, unsupported frequency - 868000000 (min:0,max:0)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:150996µs) - drift=29µs
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=94)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 5E 00 04 BD 21 49 E7 AC 8A 56 6E E4 4E 03 C7 F6 81 D2 CC FB F1 AD 41 8C 2B 7D D9 18 50 0C B9 F6 36 24 CD 08 FA 6F D2 35 50 40 9A 8A C8 C5 90 BF 25 6D 01 BB DA 14 AB 20 74 C2
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3487080644,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.2,"rssi":-53,"size":64,"data":"QCEBRAAAXgAEvSFJ56yKVm7kTgPH9oHSzPvxrUGMK33ZGFAMufY2JM0I+m/SNVBAmorIxZC/JW0Bu9oUqyB0wg=="}]}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=95)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 5F 00 04 9A 67 30 CD 20 D9 39 67 76 7B 77 C7 D7 90 10 F7 D4 9A 95 A4 34 76 68 B5 94 82 15 58 B2 0F F2 8F CB 36 4A CD EF E2 B1 9D E9 29 67 53 A6 2C 2E 6F E1 BB 67 8F 23 0B A2
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3494081276,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.0,"rssi":-45,"size":64,"data":"QCEBRAAAXwAEmmcwzSDZOWd2e3fH15AQ99SalaQ0dmi1lIIVWLIP8o/LNkrN7+KxnekpZ1OmLC5v4btnjyMLog=="}]}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=96)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 60 00 04 31 74 3B A4 48 B5 1C A0 FA DB 53 12 88 8B 8F 16 29 87 21 D1 BC 19 60 6B 77 6C 05 2E 11 92 E3 86 13 DB 38 56 40 21 7C E6 F0 0E 82 AA 30 25 4B 8E EA C5 29 BD 78 09 BA
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3501080908,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":3.2,"rssi":-53,"size":64,"data":"QCEBRAAAYAAEMXQ7pEi1HKD621MSiIuPFimHIdG8GWBrd2wFLhGS44YT2zhWQCF85vAOgqowJUuO6sUpvXgJug=="}]}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=97)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 61 00 04 F1 2E 4D 7A 91 DD 7C 94 99 FA 89 90 57 B5 10 20 2E FC F7 70 57 B7 FC 9A A0 ED B8 DB 39 3C AF 7B CC 93 5B 56 4A B1 75 D5 DA 63 95 6E 89 20 BF B7 D8 8A 70 EE 9C AF 14
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3508080524,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.0,"rssi":-45,"size":64,"data":"QCEBRAAAYQAE8S5NepHdfJSZ+omQV7UQIC7893BXt/yaoO242zk8r3vMk1tWSrF11dpjlW6JIL+32Ipw7pyvFA=="}]}
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=98)
+Dec 28 13:53:41 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 62 00 04 0C 41 4A 30 18 98 20 C6 2D 00 35 7A B5 DC 43 6F 98 02 82 A5 F1 A8 F5 59 42 71 F2 58 7E 99 73 4B D9 0D 10 8F A0 15 9D DE 74 6C 9A 21 97 28 B5 45 B5 DD 0F 50 E7 04 CF
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3515081148,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":4.8,"rssi":-53,"size":64,"data":"QCEBRAAAYgAEDEFKMBiYIMYtADV6tdxDb5gCgqXxqPVZQnHyWH6Zc0vZDRCPoBWd3nRsmiGXKLVFtd0PUOcEzw=="}]}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00440121 (fcnt=99)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 63 00 04 CB C7 53 5B D2 04 40 95 11 EF 91 37 F6 CC 8F 11 8E B8 98 11 20 86 4C 94 61 97 67 11 C7 60 5F 8D 0A 9C 76 CC 34 08 99 AA F4 38 E1 31 23 AF 2E 20 2C DC 0D FF 97 0C B2
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3522080764,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":6.8,"rssi":-45,"size":64,"data":"QCEBRAAAYwAEy8dTW9IEQJUR75E39syPEY64mBEghkyUYZdnEcdgX40KnHbMNAiZqvQ44TEjry4gLNwN/5cMsg=="}]}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: RX: 40 21 01 44 00 00 64 00 04 E2 23 5A B7 3B DF F8 71 40 14 6D DF 39 85 76 A2 81 28 EA 2A 0B D1 0A D7 2A 76 CD 17 5A A9 8F 28 39 EA E4 ED 5E ED 8A 13 B9 78 AC 0B 5A E7 B7 BE F1 44 8A 18 E3 D5 96
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3529080420,"chan":0,"rfch":1,"freq":868.100000,"stat":-1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":2.5,"rssi":-59,"size":64,"data":"QCEBRAAAZAAE4iNatzvf+HFAFG3fOYV2ooEo6ioL0QrXKnbNF1qpjyg56uTtXu2KE7l4rAta57e+8USKGOPVlg=="}]}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=103)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 67 00 04 D1 3F 38 CD 65 9D EF 35 5D C0 F1 8C C1 E2 1E 84 4A 62 36 53 50 58 78 FF C0 FC A0 29 3D 59 61 5E 9C 5D 91 BB 1B 21 8B F9 E6 E9 E0 1C 8E BD C4 7C E8 F3 3E C9 7F E4 88
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3537106700,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":8.2,"rssi":-53,"size":64,"data":"QDgBaAAAZwAE0T84zWWd7zVdwPGMweIehEpiNlNQWHj/wPygKT1ZYV6cXZG7GyGL+ebp4ByOvcR86PM+yX/kiA=="}]}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: ##### 2018-12-28 13:54:08 GMT #####
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: ### [UPSTREAM] ###
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # RF packets received by concentrator: 8
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # CRC_OK: 87.50%, CRC_FAIL: 12.50%, NO_CRC: 0.00%
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # RF packets forwarded: 8 (512 bytes)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA datagrams sent: 9 (2218 bytes)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # PUSH_DATA acknowledged: 100.00%
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: ### [DOWNSTREAM] ###
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # PULL_DATA sent: 6 (100.00% acknowledged)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # PULL_RESP(onse) datagrams received: 1 (215 bytes)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # RF packets sent to concentrator: 0 (52 bytes)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # TX errors: 0
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # BEACON queued: 0
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # BEACON sent so far: 0
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # BEACON rejected: 0
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: ### [JIT] ###
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: src/jitqueue.c:448:jit_print_queue(): INFO: [jit] queue is empty
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: ### [GPS] ###
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: # GPS sync is disabled
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: ##### END #####
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"stat":{"time":"2018-12-28 13:54:08 GMT","rxnb":8,"rxok":7,"rxfw":8,"ackr":100.0,"dwnb":1,"txnb":0}}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: Disabling GPS mode for concentrator's counter...
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: host/sx1301 time offset=(1546001706s:151030µs) - drift=34µs
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: Enabling GPS mode for concentrator's counter.
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=104)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 68 00 04 EF D9 C0 7F 6A 70 F2 F0 46 55 29 21 51 3A BD 68 56 08 E9 6E 6F 62 60 04 06 BF AF FE 11 CF B5 37 97 8A 1B F4 D9 84 F1 FF 0A 9F 27 2D 8F 75 50 54 9C 7A 2D 1B 3B A7 94
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3544106348,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":9.2,"rssi":-55,"size":64,"data":"QDgBaAAAaAAE79nAf2pw8vBGVSkhUTq9aFYI6W5vYmAEBr+v/hHPtTeXihv02YTx/wqfJy2PdVBUnHotGzunlA=="}]}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=105)
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 69 00 04 E7 AA 3F B7 83 7C DF 9D EF AB 76 DA 86 59 B9 DD AD 5F 0B 3A 30 2E 74 58 03 D8 D1 42 56 AC 87 60 AF E1 AE 67 36 3D 59 D9 58 F6 10 CE D2 5D 6F 93 8C C4 4A 64 12 49 06
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3551106004,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":10.2,"rssi":-47,"size":64,"data":"QDgBaAAAaQAE56o/t4N8353vq3bahlm53a1fCzowLnRYA9jRQlash2Cv4a5nNj1Z2Vj2EM7SXW+TjMRKZBJJBg=="}]}
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:54:24 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=106)
+Dec 28 13:56:08 rhf2s008 rsyslogd-2007: action 'action 17' suspended, next retry is Fri Dec 28 13:57:38 2018 [try http://www.rsyslog.com/e/2007 ]
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 6A 00 04 3C 9C A0 CC C4 23 CC FA BF D2 6F 89 3C 57 94 35 3F FB 82 23 0D 70 8E E2 29 DB 20 C8 2F 33 21 1D A1 0E CC D7 2E C9 4F EC CA C4 B5 F1 B0 21 89 3F 3C 19 F5 C3 F4 07 CC
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3558105644,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":9.8,"rssi":-51,"size":64,"data":"QDgBaAAAagAEPJygzMQjzPq/0m+JPFeUNT/7giMNcI7iKdsgyC8zIR2hDszXLslP7MrEtfGwIYk/PBn1w/QHzA=="}]}
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=107)
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 6B 00 04 B8 61 D1 57 B4 5A 1C 2F C6 43 5D 80 92 40 EA FB A9 9D C5 3F B3 BF 07 A3 85 E6 1F 90 D3 F6 3A 44 06 45 C1 E2 D2 68 48 DB 07 FA FB 9B EB 28 0A 6C C0 B2 28 A9 74 3C 3F
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3565105300,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":9.0,"rssi":-47,"size":64,"data":"QDgBaAAAawAEuGHRV7RaHC/GQ12AkkDq+6mdxT+zvwejheYfkNP2OkQGRcHi0mhI2wf6+5vrKApswLIoqXQ8Pw=="}]}
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=108)
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 6C 00 04 D5 28 19 F0 A7 51 77 0A 2E CC CF 64 13 60 69 29 86 E7 69 3B FD 65 10 EC CA A9 01 23 3E 4D 3A C7 F8 46 47 98 9B 84 BB 0C 7E 32 4D 60 CD 82 EC FB CE 47 3C C2 05 71 8D
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3572104940,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":9.0,"rssi":-53,"size":64,"data":"QDgBaAAAbAAE1SgZ8KdRdwouzM9kE2BpKYbnaTv9ZRDsyqkBIz5NOsf4RkeYm4S7DH4yTWDNguz7zkc8wgVxjQ=="}]}
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: [up] PUSH_ACK received in 1 ms
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: [down] PULL_ACK received in 0 ms
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: INFO: Received pkt from mote: 00680138 (fcnt=109)
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: RX: 40 38 01 68 00 00 6D 00 04 46 E6 28 57 A7 42 B0 DA C8 A3 48 A3 20 3E 9E 7B 54 8E 81 DA CF 47 22 1E C8 E2 17 D9 29 D0 46 55 6F F7 16 BD EA 25 E9 DC D6 2F 6E 24 E4 E2 E8 42 16 AF 2B C6 34 B7 1E
+Dec 28 13:56:08 rhf2s008 pktfwd.sh[4652]: JSON up: {"rxpk":[{"tmst":3579104604,"chan":0,"rfch":1,"freq":868.100000,"stat":1,"modu":"LORA","datr":"SF11BW125","codr":"4/5","lsnr":10.2,"rssi":-43,"size":64,"data":"QDgBaAAAbQAERuYoV6dCsNrIo0ijID6ee1SOgdrPRyIeyOIX2SnQRlVv9xa96iXp3NYvbiTk4uhCFq8rxjS3Hg=="}]}

@@ -28,9 +28,10 @@ res_list = []
 devices = {}
 
 messageCounter = 0
+# todo не работает время между двумя сообщениями от одного узла
 
 
-f = open('syslog_SF11_for2and4')
+f = open('syslog_dif_dB_SF11')
 
 
 for line in f:
@@ -49,7 +50,7 @@ for line in f:
         continue
 
     if line.find("JSON up: {\"rxpk\"") != -1:
-        messageCounter += 1 # ili v konche
+        messageCounter += 1
         tmp = line.split('JSON up:')
         d = json.loads(tmp[1])
 
