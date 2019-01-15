@@ -48,6 +48,9 @@ for line in f:
         tmp = line.split('JSON up:')
         d = json.loads(tmp[1])
 
+        if d['rxpk'][0]['freq'] != 868.1 or d['rxpk'][0]['datr'] != 'SF7BW125':
+            continue
+
         if devicesTimestamps.get(currDevice) == None:
             devicesTimestamps[currDevice] = [str(d['rxpk'][0]['tmst'])]
             devicesMessage[currDevice] = 1
@@ -66,7 +69,7 @@ f.close()
 
 
 
-path = "syslog_SF11_for2and4.csv"
+path = "syslog_dif_SF7_6348-18805_2.csv"
 
 
 for key in devicesMessage.keys():
