@@ -2,13 +2,6 @@ import csv
 import json
 
 
-class Device:
-    def __init__(self, lastTimestamp, numOfMessage):
-        self.lastTimestamp = lastTimestamp
-        self.numOfMessage = numOfMessage
-
-
-
 def csv_dict_writer(path, fieldnames, data):
     """
     Writes a CSV file using DictWriter
@@ -26,15 +19,12 @@ res_list = []
 
 devicesTimestamps = {}
 devicesMessage = {}
-devicesSF = {}
 
 currDevice = '-1'
 
 messageCounter = 0
 
-
-
-f = open('syslog_dif_SF7')
+f = open('syslog_SF11_SF12')
 
 
 for line in f:
@@ -48,20 +38,14 @@ for line in f:
         tmp = line.split('JSON up:')
         d = json.loads(tmp[1])
 
-        # if d['rxpk'][0]['freq'] != 868.1 or d['rxpk'][0]['datr'] != 'SF7BW125':
-        #     continue
-
 
         currDevice = currDevice + ' ' + d['rxpk'][0]['datr']
 
         if devicesTimestamps.get(currDevice) == None:
             devicesTimestamps[currDevice] = [str(d['rxpk'][0]['tmst'])]
-            # devicesSF[currDevice] = [d['rxpk'][0]['datr']]
             devicesMessage[currDevice] = 1
         else:
             devicesTimestamps[currDevice].append(str(d['rxpk'][0]['tmst']))
-            # if not(d['rxpk'][0]['datr'] in devicesSF[currDevice]):
-            #     devicesSF[currDevice].append(d['rxpk'][0]['datr'])
             devicesMessage[currDevice] += 1
 
         currDevice = '-1'
@@ -73,9 +57,7 @@ for line in f:
 f.close()
 
 
-
-
-path = "syslog_dif_SF7_6348-18805_2.csv"
+path = "test_out.csv"
 
 
 for key in devicesMessage.keys():
