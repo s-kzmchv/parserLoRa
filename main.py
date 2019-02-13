@@ -1,7 +1,9 @@
 from myParser import parse
 from bisect import bisect_left
 from itertools import chain, combinations, product
-
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 
 def takeClosest(myList, myNumber):
@@ -127,7 +129,7 @@ if __name__ == "__main__":
                         while x > part*(j+1):
                             j = j + 1
                         tmpSuccessX[j] = tmpSuccessX[j] + 1
-                        listForEntry[numberOfParticipant - 1] = str((j+1)*part)
+                        listForEntry[numberOfParticipant - 1] = str(round((j+1)*part,1))
                         crossTimestapsSuccess[entry].append(nearestTimestamps)
 
                 if numberOfParticipant > n or flag:
@@ -160,7 +162,7 @@ if __name__ == "__main__":
                         while x > part*(j+1):
                             j = j + 1
                         tmpSuccessX[j] = tmpSuccessX[j] + 1
-                        listForEntry[numberOfParticipant - 1] = str((j+1)*part)
+                        listForEntry[numberOfParticipant - 1] = str(round((j+1)*part,1))
                         crossTimestapsSuccess[entry].append(nearestTimestamps)
 
                 if numberOfParticipant < n or flag:
@@ -205,7 +207,7 @@ if __name__ == "__main__":
                         while x > part*(j+1):
                             j = j + 1
                         tmpFailX[j] = tmpFailX[j] + 1
-                        listForEntry[numberOfParticipant - 1] = str((j+1)*part)
+                        listForEntry[numberOfParticipant - 1] = str(round((j+1)*part,1))
                         crossTimestapsFail[entry].append(nearestTimestamps)
 
                 if numberOfParticipant > n or flag:
@@ -237,7 +239,7 @@ if __name__ == "__main__":
                         while x > part*(j+1):
                             j = j + 1
                         tmpFailX[j] = tmpFailX[j] + 1
-                        listForEntry[numberOfParticipant - 1] = str((j+1)*part)
+                        listForEntry[numberOfParticipant - 1] = str(round((j+1)*part,1))
                         crossTimestapsFail[entry].append(nearestTimestamps)
 
                 if numberOfParticipant < n or flag:
@@ -256,7 +258,8 @@ if __name__ == "__main__":
         print('n = ' + str(n))
         if n == 1:
             print('Success  = ' + str(successX))
-            print('Fail = ' + str(failX))
+            print('Fail     = ' + str(failX))
+
         # else:
         #     for j in dict:
         #         print(j + ' Success: ' + str(dict[j][0]) + ' Fail: ' + str(dict[j][1]))
@@ -277,15 +280,54 @@ if __name__ == "__main__":
         #   if len(crossTimestapsFail[crossTimestap]) != 0:
         #       print(str(crossTimestap) + ': ' + str(crossTimestapsFail[crossTimestap]))
 
-        for val in product(range(i), repeat=n):
-            strVal = ''
-            for j in range(len(val)-1):
-                strVal = strVal + str((val[j]+1)*part) + ' '
-            strVal = strVal +  str((val[-1]+1)*part)
-            # print(strVal)
-            # print(val + ' Success: ' + str(dict[j][0]) + ' Fail: ' + str(dict[j][1]))
-            if dict.get(strVal) != None:
-                print('Pr[success | ' + strVal + '] = ' + str(dict[strVal][0] / (dict[strVal][0] + dict[strVal][1])))
-        # for entry in dict:
+            Pr = []
+            Xi = []
+            for val in product(range(i), repeat=n):
+                strVal = ''
+                for j in range(len(val)-1):
+                    strVal = strVal + str(round((val[j]+1)*part,1)) + ' '
+                strVal = strVal +  str(round((val[-1]+1)*part,1))
+                # print(strVal)
+                # print(val + ' Success: ' + str(dict[j][0]) + ' Fail: ' + str(dict[j][1]))
+                if dict.get(strVal) != None:
+                    print('Pr[success | ' + strVal + '] = ' + str(dict[strVal][0] / (dict[strVal][0] + dict[strVal][1])))
+                    Pr.append(dict[strVal][0] / (dict[strVal][0] + dict[strVal][1]))
+                    Xi.append(strVal)
 
-            # print('Pr[success | ' + entry + '] = ' + str(dict[entry][0]/(dict[entry][0] + dict[entry][1])))
+            plt.plot(Xi, Pr, color="g", label='something')
+            plt.xlabel('Xi')
+            plt.ylabel('Pr[success]')
+            plt.legend()
+            # plt.savefig("n={}.png".format(n))
+            plt.show()
+            plt.clf()
+
+        if n == 2:
+            count = 0
+            for val in product(range(i), repeat=n):
+                count += 1
+                strVal = ''
+                for j in range(len(val) - 1):
+                    strVal = strVal + str(round((val[j] + 1) * part, 1)) + ' '
+                strVal = strVal + str(round((val[-1] + 1) * part, 1))
+                if dict.get(strVal) != None:
+                #     print(dict[strVal][0], end=' ')
+                # else:
+                #     print('0', end=' '),
+                #
+                # if count == i:
+                #     count = 0
+                #     print('')
+                    print(strVal +' ' + str(dict[strVal][0]) + ' ' + str(dict[strVal][1]))
+                else:
+                    print(strVal + ' 0 0')
+
+            for val in product(range(i), repeat=n):
+                strVal = ''
+                for j in range(len(val)-1):
+                    strVal = strVal + str(round((val[j]+1)*part,1)) + ' '
+                strVal = strVal +  str(round((val[-1]+1)*part,1))
+                # print(strVal)
+                # print(val + ' Success: ' + str(dict[j][0]) + ' Fail: ' + str(dict[j][1]))
+                if dict.get(strVal) != None:
+                    print('Pr[success | ' + strVal + '] = ' + str(dict[strVal][0] / (dict[strVal][0] + dict[strVal][1])))
