@@ -34,13 +34,13 @@ def parse(inputFile, outputFile):
             tmp = line.split('JSON up:')
             d = json.loads(tmp[1])
 
-            currDevice = currDevice + ' ' + d['rxpk'][0]['datr']
+            currDevice = currDevice + ' ' + d['rxpk'][-1]['datr']
 
             if devicesTimestamps.get(currDevice) == None:
-                devicesTimestamps[currDevice] = [str(d['rxpk'][0]['tmst'])]
+                devicesTimestamps[currDevice] = [str(d['rxpk'][-1]['tmst'])]
                 devicesMessage[currDevice] = 1
             else:
-                devicesTimestamps[currDevice].append(str(d['rxpk'][0]['tmst']))
+                devicesTimestamps[currDevice].append(str(d['rxpk'][-1]['tmst']))
                 devicesMessage[currDevice] += 1
 
             currDevice = '-1'
