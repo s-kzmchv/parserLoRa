@@ -26,14 +26,15 @@ def takeClosest(myList, myNumber):
        return before
 
 if __name__ == "__main__":
-    devicesTimestampsSuccess = parse('syslog_24_SF7','out')
+
     # print(devicesTimestampsSuccess)
-    begin = 3012979
-    end = 2579724867
+    begin = 881557851
+    end = 2459484579
     step = 7000000
     e = 100000
     timeOnAir = 119000
     i = 9
+    devicesTimestampsSuccess = parse('syslog_22_SF7', 'out', step, begin, end)
     devicesTimestampsFail = {}
     for key in devicesTimestampsSuccess:
         # print(key)
