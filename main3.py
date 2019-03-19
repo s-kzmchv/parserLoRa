@@ -1,37 +1,44 @@
-from myParser import parse
-from bisect import bisect_left
+from myParser import *
+
 from itertools import chain, combinations, product
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import random
+import math
 
+packetForPrint = -1
 
-def takeClosest(myList, myNumber):
-    """
-    Assumes myList is sorted. Returns closest value to myNumber.
+countMes1 = 0
+countMes2 = 0
+massOfLol1 = []
+massOfLol2 = []
 
-    If two numbers are equally close, return the smallest number.
-    """
-    pos = bisect_left(myList, myNumber)
-    if pos == 0:
-        return myList[0]
-    if pos == len(myList):
-        return myList[-1]
-    before = myList[pos - 1]
-    after = myList[pos]
-    if after - myNumber < myNumber - before:
-       return after
-    else:
-       return before
+def prob(devicesTimestampsSuccess, devicesTimestampsFail,numOfDevices):
+    # вычисление вероятности передачи
+    max = 0
+    numOfSuccessMessagesAll = 0
+    numOfFailMessagesAll = 0
+    for key in devicesTimestampsSuccess:
+        numOfSuccessMessages = len(devicesTimestampsSuccess[key])
+        numOfFailMessages = len(devicesTimestampsFail[key])
+        if numOfSuccessMessages > max:
+            max = numOfSuccessMessages
+        numOfSuccessMessagesAll += numOfSuccessMessages
+        numOfFailMessagesAll += numOfFailMessages
+        print("P for {} = {}".format(key, numOfSuccessMessages / (numOfFailMessages + numOfSuccessMessages)))
+    print()
+    print("First way P = {} \n".format(numOfSuccessMessagesAll / (max * numOfDevices)))
+    print("Second way P = {} \n".format(numOfSuccessMessagesAll / (numOfFailMessagesAll + numOfSuccessMessagesAll)))
 
-
-def getXi(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir):
-    packetForPrint = 937555131
+def getXiMostSign(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir):
     currX = timeOnAir + 1
+    device = ' '
     for currDevice in devicesTimestampsSuccess:
         if keyDevice == currDevice:
             continue
+        if len(devicesTimestampsSuccess[currDevice]) == 0:
+            continue
+
 
         nearestTimestamps = takeClosest(devicesTimestampsSuccess[currDevice], packet)
         x = nearestTimestamps - packet
@@ -42,6 +49,7 @@ def getXi(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, tim
         if abs(x) < timeOnAir:
             if abs(x) < abs(currX):
                 currX = x
+                device = currDevice
 
     if packet == packetForPrint:
         print()
@@ -61,26 +69,116 @@ def getXi(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, tim
         if abs(x) < timeOnAir:
             if abs(x) < abs(currX):
                 currX = x
+                device = currDevice
     if currX != timeOnAir + 1 and packet == packetForPrint:
         print()
         print('YES ' + str(packet) +' + ' + str(currX) + ' = ' + str(packet+currX))
-    return currX
+    return currX, device
+
+def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir):
+    currX = timeOnAir + 1
+    numOfCross = 0
+    device = ' '
+    for currDevice in devicesTimestampsSuccess:
+        if numOfCross > 1:
+            return timeOnAir + 1, ' '
+        if keyDevice == currDevice:
+            continue
+        if len(devicesTimestampsSuccess[currDevice]) == 0:
+            continue
+
+
+        nearestTimestamps = takeClosest(devicesTimestampsSuccess[currDevice], packet)
+        x = nearestTimestamps - packet
+
+        # if packet == packetForPrint:
+        #     print(str(packet) +' + ' + str(x) + ' = ' + str(packet+x) + ' from '+ str(currDevice))
+
+        if abs(x) < timeOnAir:
+            currX = x
+            numOfCross += 1
+            device = currDevice
+
+    if packet == packetForPrint:
+        print()
+
+    for currDevice in devicesTimestampsFail:
+        if numOfCross > 1:
+            return timeOnAir + 1, ' '
+        if keyDevice == currDevice:
+            continue
+        if len(devicesTimestampsFail[currDevice]) == 0:
+            continue
+
+
+        nearestTimestamps = takeClosest(devicesTimestampsFail[currDevice], packet)
+        x = nearestTimestamps - packet
+
+        # if packet == packetForPrint:
+        #     print(str(packet) +' + ' + str(x) + ' = ' + str(packet+x) + ' from '+ str(currDevice))
+
+        if abs(x) < timeOnAir:
+                currX = x
+                numOfCross += 1
+                device = currDevice
+
+    if currX != timeOnAir + 1 and packet == packetForPrint:
+        print()
+        print('YES ' + str(packet) +' + ' + str(currX) + ' = ' + str(packet+currX))
+    return currX, device
+
+
+# выявить пересечения для определенного устройства
+
+# счет вероятности передачи взять число передач и успешные поделить на общее число
+# выявить устройства которые не передают но и не пересекаются
+# по сути пары устройств обнаружить 
+
+# вывести пакеты для которых найдено пересечение
 
 
 if __name__ == "__main__":
     timeOnAir = 119000
-    begin = 881557851
-    end = 2563801763
+    # timeOnAir += 40000
+    begin = 880237035
+    end = 2364649075
     step = 7000000
     i = 9
-    devicesTimestampsSuccess, devicesTimestampsFail = parse('syslog_22_SF7', 'out', step, begin, end)
+    nameOfLog = 'syslog_12_SF8_24_SF7'
+    devicesTimestampsSuccess, devicesTimestampsFail = parse(nameOfLog, 'out', step, begin, end)
 
     for key in devicesTimestampsSuccess:
         # print(key)
         devicesTimestampsSuccess[key] = [int(entry) for entry in devicesTimestampsSuccess[key]]
         devicesTimestampsFail[key] = [int(entry) for entry in devicesTimestampsFail[key]]
 
+    numOfDevices = 0
+    splitName = nameOfLog.split('_')
+    for i in splitName:
+        if i.isdigit():
+            numOfDevices += int(i)
 
+    prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
+
+    exit(0)
+
+    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # для вывода всех пакетов без пересечения
+    AllSuccessMessages = []
+    AllFailMessages = []
+    for key in devicesTimestampsSuccess:
+        AllFailMessages.extend(devicesTimestampsFail[key])
+        AllSuccessMessages.extend(devicesTimestampsSuccess[key])
+
+    print("all message in success and fail")
+    print(len(AllSuccessMessages), AllSuccessMessages)
+    print(len(AllFailMessages), AllFailMessages)
+
+    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+    ultimateDictionarySucces = {}
+    ultimateDictionaryFail = {}
 
     part = timeOnAir / i
 
@@ -89,37 +187,52 @@ if __name__ == "__main__":
             continue
         if n == 2:
             part = timeOnAir
-
         dict = {}
-
         for key in devicesTimestampsSuccess:
+            ultimateDictionarySucces[key] = set()
             for entry in devicesTimestampsSuccess[key]:
-                currX = getXi(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
-
+                currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
                 if currX != timeOnAir + 1:
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    ultimateDictionarySucces[key].add(device)
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if entry in AllSuccessMessages:
+                        AllSuccessMessages.remove(entry)
+
+                    if entry in AllFailMessages:
+                        AllFailMessages.remove(entry)
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     j = 0
                     while abs(currX) > part * (j + 1):
                         j = j + 1
-
                     res = round((j + 1) * part, 1)
                     if currX < 0:
                         res *= -1
-
                     if dict.get(res) == None:
                         dict[res] = [1, 0]
                     else:
                         dict[res][0] += 1
 
         for key in devicesTimestampsFail:
+            ultimateDictionaryFail[key] = set()
             for entry in devicesTimestampsFail[key]:
-
-                currX = getXi(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
-
+                currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
                 if currX != timeOnAir + 1:
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    ultimateDictionaryFail[key].add(device)
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if entry in AllSuccessMessages:
+                        AllSuccessMessages.remove(entry)
+
+                    if entry in AllFailMessages:
+                        AllFailMessages.remove(entry)
+                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
                     j = 0
                     while abs(currX) > part * (j + 1):
                         j = j + 1
-
                     res = round((j + 1) * part, 1)
                     if currX < 0:
                         res *= -1
@@ -129,15 +242,39 @@ if __name__ == "__main__":
                     else:
                         dict[res][1] += 1
 
-        print('n = ' + str(n))
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        print("message without cross in success and fail")
+        print(len(AllSuccessMessages), AllSuccessMessages)
+        print(len(AllFailMessages), AllFailMessages)
+        print()
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        print("Cross device with other!!!!!!!")
+        for key in ultimateDictionaryFail:
+            if len(ultimateDictionaryFail[key]) != 0:
+                print(key, ultimateDictionaryFail[key])
+        print()
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        devicesTimestampsFailNoCross = {}
+        for item in AllFailMessages:
+            for key in devicesTimestampsFail:
+                if item in devicesTimestampsFail[key]:
+                    if devicesTimestampsFailNoCross.get(key) == None:
+                        devicesTimestampsFailNoCross[key] = [item]
+                    else:
+                        devicesTimestampsFailNoCross[key].append(item)
+                    break
+        print("message without cross in fail by device")
+        for key in devicesTimestampsFailNoCross:
+            print(key,len(devicesTimestampsFailNoCross[key]), devicesTimestampsFailNoCross[key])
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        print('\nn = ' + str(n))
         if n == 1:
             # вывод кол-ва в промежутке
             resStr = ''
             Pr = []
             Xi = []
             N_message = []
-
-            # Xi = sorted(dict.keys())
 
             for item in np.arange(-timeOnAir, timeOnAir + 1, part):
                 item = round(item, 1)
@@ -151,13 +288,14 @@ if __name__ == "__main__":
                     Xi.append(item)
                     print('Pr[success | ' + str(item) + '] = ' + str(PrCurr) + ' Success: ' + str(
                         dict[item][0]) + ' Fail: ' + str(dict[item][1]))
+                    countMes1 += dict[item][1]
                 else:
                     Pr.append(0)
                     N_message.append(0)
                     # Xi.append(str(item))
                     Xi.append(item)
                     print('Pr[success | ' + str(item) + '] = 0 Success: 0 Fail: 0')
-
+            print(countMes1)
             plt.plot(Xi, Pr, color="g", label='probability')
             plt.xlabel('Xi')
             plt.ylabel('Pr[success]')
