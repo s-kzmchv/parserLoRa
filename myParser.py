@@ -20,7 +20,6 @@ def takeClosest(myList, myNumber):
     else:
        return before
 
-
 def csv_dict_writer(path, fieldnames, data):
     """
     Writes a CSV file using DictWriter
@@ -30,8 +29,6 @@ def csv_dict_writer(path, fieldnames, data):
         writer.writeheader()
         for row in data:
             writer.writerow(row)
-
-
 
 def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
     fieldnames = ['id device',   'num of message', 'timestamps']
@@ -61,7 +58,12 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
             for packetNum in range(len(d['rxpk'])):
                 # timeStamp = d['rxpk'][-1]['tmst']
                 timeStamp = d['rxpk'][packetNum]['tmst']
-                currDeviceWithSF = currDevice[packetNum] + ' ' + d['rxpk'][packetNum]['datr']
+                # print(d['rxpk'][packetNum]['tmst'])
+                if len(currDevice) > packetNum:
+                    currDeviceWithSF = currDevice[packetNum] + ' ' + d['rxpk'][packetNum]['datr']
+                else:
+                    # currDeviceWithSF = '-1 ' + d['rxpk'][packetNum]['datr']
+                    break
 
                 if timeStamp < beginTimestamp or timeStamp > endTimestamp:
                     if devicesSuccesTimestamps.get(currDeviceWithSF) == None:

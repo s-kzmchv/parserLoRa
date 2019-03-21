@@ -28,7 +28,11 @@ def prob(devicesTimestampsSuccess, devicesTimestampsFail,numOfDevices):
         print("P for {} = {}".format(key, numOfSuccessMessages / (numOfFailMessages + numOfSuccessMessages)))
     print()
     print("First way P = {} \n".format(numOfSuccessMessagesAll / (max * numOfDevices)))
+    # print(max * numOfDevices)
     print("Second way P = {} \n".format(numOfSuccessMessagesAll / (numOfFailMessagesAll + numOfSuccessMessagesAll)))
+    # print(numOfFailMessagesAll + numOfSuccessMessagesAll)
+    # print(numOfSuccessMessagesAll)
+    # print(numOfFailMessagesAll)
 
 def getXiMostSign(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir):
     currX = timeOnAir + 1
@@ -137,14 +141,22 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
 # вывести пакеты для которых найдено пересечение
 
 
+# посмотреть ошибку интерполяции
+# увеличить время передачи на ошибку интерполяции
+# вывести пересечение по устройству к устройству
+# усреднениние
+# фотки
+# интерполяуия + -
+
 if __name__ == "__main__":
     timeOnAir = 119000
     # timeOnAir += 40000
-    begin = 880237035
-    end = 2364649075
+    begin = 236069347
+    end = 1139027235
     step = 7000000
     i = 9
-    nameOfLog = 'syslog_12_SF8_24_SF7'
+    # nameOfLog = 'syslog_15_SF8_21_SF7_00'
+    nameOfLog = 'syslog_36_SF7'
     devicesTimestampsSuccess, devicesTimestampsFail = parse(nameOfLog, 'out', step, begin, end)
 
     for key in devicesTimestampsSuccess:
@@ -154,13 +166,13 @@ if __name__ == "__main__":
 
     numOfDevices = 0
     splitName = nameOfLog.split('_')
-    for i in splitName:
-        if i.isdigit():
-            numOfDevices += int(i)
+    for itmp in splitName:
+        if itmp.isdigit():
+            numOfDevices += int(itmp)
 
     prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
 
-    exit(0)
+    # exit(0)
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # для вывода всех пакетов без пересечения
