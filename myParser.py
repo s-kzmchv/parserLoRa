@@ -1,6 +1,7 @@
 import csv
 import json
 from bisect import bisect_left
+import numpy as np
 
 def takeClosest(myList, myNumber):
     """
@@ -41,6 +42,8 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
     currDevice = []
     numOfCurrMessage = []
 
+    interpolError = []
+
     f = open(inputFile)
     for line in f:
         if line.find("fcnt") != -1:
@@ -73,9 +76,19 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
                             lostDevicesSuccesTimestamps[currDeviceWithSF].append(timeStamp)
                     continue
 
+                tmpTimeStampInterpol = 0
                 if devicesLastGetNumOfMessage.get(currDeviceWithSF) != None and numOfCurrMessage[packetNum] - devicesLastGetNumOfMessage[currDeviceWithSF] != 1:
                     for i in range(numOfCurrMessage[packetNum] - devicesLastGetNumOfMessage[currDeviceWithSF] - 1):
                         devicesFailTimestamps[currDeviceWithSF].append(str((int(devicesSuccesTimestamps[currDeviceWithSF][-1]) + (i+1)*timePeriod)))
+                        tmpTimeStampInterpol = int(devicesSuccesTimestamps[currDeviceWithSF][-1]) + (i+1)*timePeriod
+                        # print(i)
+
+                if tmpTimeStampInterpol != 0:
+                    # if timePeriod - (timeStamp - tmpTimeStampInterpol) < 0:
+                    #     print(timeStamp )
+                    #     print(tmpTimeStampInterpol)
+                    # print((7000000 - (timeStamp - tmpTimeStampInterpol))/(i+1))
+                    interpolError.append((7000000 - (timeStamp - tmpTimeStampInterpol))/(i+1))
 
                 if devicesSuccesTimestamps.get(currDeviceWithSF) == None:
                     devicesSuccesTimestamps[currDeviceWithSF] = [str(timeStamp)]
@@ -92,7 +105,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
 
     f.close()
 
-    # print(lostDevicesSuccesTimestamps)
+    print(lostDevicesSuccesTimestamps)
     for key in lostDevicesSuccesTimestamps.keys():
         devicesFailTimestamps[key] = []
         devicesSuccesTimestamps[key] = []
@@ -155,4 +168,8 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
         tmp = ' '.join(devicesFailTimestamps[key])
         f.write(key + ' ' + str(len(devicesFailTimestamps[key])) + ' ' + tmp + '\n')
     f.close()
+
+    print(interpolError)
+    print(np.mean(interpolError))
+
     return devicesSuccesTimestamps, devicesFailTimestamps

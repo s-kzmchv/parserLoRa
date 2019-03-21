@@ -1,7 +1,6 @@
 from myParser import *
 
 from itertools import chain, combinations, product
-import numpy as np
 import matplotlib.pyplot as plt
 import random
 import math
@@ -131,6 +130,15 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
         print('YES ' + str(packet) +' + ' + str(currX) + ' = ' + str(packet+currX))
     return currX, device
 
+def comparisonTwoDevice(d1, d2):
+    for i in range(len(d1)-1):
+        print(d1[i])
+        print(d2[i])
+        print(d1[i + 1] - d1[i])
+        print(d2[i + 1] - d2[i])
+        print("\t",d1[i] - d2[i])
+
+
 
 # выявить пересечения для определенного устройства
 
@@ -150,13 +158,15 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
 
 if __name__ == "__main__":
     timeOnAir = 119000
-    # timeOnAir += 40000
-    begin = 236069347
-    end = 1139027235
-    step = 7000000
+    # timeOnAir += 560 * 212
+    begin = 880237045
+    end = 2364649075
+    step = 6999440
+    # step = 7000560
+    # step = 7000000
     i = 9
     # nameOfLog = 'syslog_15_SF8_21_SF7_00'
-    nameOfLog = 'syslog_36_SF7'
+    nameOfLog = 'syslog_22_SF7'
     devicesTimestampsSuccess, devicesTimestampsFail = parse(nameOfLog, 'out', step, begin, end)
 
     for key in devicesTimestampsSuccess:
@@ -170,7 +180,17 @@ if __name__ == "__main__":
         if itmp.isdigit():
             numOfDevices += int(itmp)
 
-    prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
+    # prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
+
+    d1 = devicesTimestampsSuccess["005F0143 SF7BW125"]
+    d1.extend(devicesTimestampsFail["005F0143 SF7BW125"])
+    d1.sort()
+
+    d2 = devicesTimestampsSuccess["01470B21 SF7BW125"]
+    d2.extend(devicesTimestampsFail["01470B21 SF7BW125"])
+    d2.sort()
+
+    # comparisonTwoDevice(d1,d2)
 
     # exit(0)
 
