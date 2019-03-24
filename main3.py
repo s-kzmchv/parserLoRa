@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import random
 import math
 
-packetForPrint = 1562430987
+packetForPrint = -1
 
 countMes1 = 0
 countMes2 = 0
@@ -33,7 +33,7 @@ def prob(devicesTimestampsSuccess, devicesTimestampsFail,numOfDevices):
     # print(numOfSuccessMessagesAll)
     # print(numOfFailMessagesAll)
 
-def getXiMostSign(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir):
+def getXiMostSign(keyDevice, packet, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir):
     currX = timeOnAir + 1
     device = ' '
     for currDevice in devicesTimestampsSuccess:
@@ -130,13 +130,35 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
         print('YES ' + str(packet) +' + ' + str(currX) + ' = ' + str(packet+currX))
     return currX, device
 
-def comparisonTwoDevice(d1, d2):
+def comparisonTwoDevice(d1name, d2name, devicesTimestampsSuccess, devicesTimestampsFail):
+    d1 = devicesTimestampsSuccess[d1name].copy()
+    d1.extend(devicesTimestampsFail[d1name])
+    d1.sort()
+
+    d2 = devicesTimestampsSuccess[d2name].copy()
+    d2.extend(devicesTimestampsFail[d2name])
+    d2.sort()
+
     for i in range(len(d1)-1):
-        print(d1[i])
-        print(d2[i])
-        print(d1[i + 1] - d1[i])
-        print(d2[i + 1] - d2[i])
-        print("\t",d1[i] - d2[i])
+        if (d1[i] in devicesTimestampsSuccess[d1name]) and (d2[i] in devicesTimestampsSuccess[d2name]):
+            print(d1[i])
+            print(d2[i])
+            print(d1[i + 1] - d1[i])
+            print(d2[i + 1] - d2[i])
+            print("\t",d1[i] - d2[i])
+
+def periodForDevice(dname, devicesTimestampsSuccess):
+    d = devicesTimestampsSuccess[dname].copy()
+    d.extend(devicesTimestampsFail[dname])
+    d.sort()
+
+
+    for i in range(len(d)-1):
+        if (d[i + 1] - d[i] < 8000000):
+            # print(d[i + 1])
+            # print(d[i])
+            print(d[i + 1] - d[i])
+            print()
 
 
 # выявить устройства которые не передают но и не пересекаются
@@ -153,30 +175,32 @@ def comparisonTwoDevice(d1, d2):
 
 if __name__ == "__main__":
 
-    namesOfLog = ['syslog_22_SF7', 'syslog_36_SF7', 'syslog_31_SF7', 'syslog_14_SF7', 'syslog_7_SF7']
-    begins = [208178579, 236069347, 234342595, 113778867, 288014035, 75422971]
-    ends = [1271427251, 1139027235, 1482759195, 933773339, 1569561259, 838386019]
+    namesOfLog = ['syslog_22_SF7',  'syslog_14_SF7', 'syslog_7_SF7']
+    begins = [208178579, 113778867, 288014035]
+    ends = [1271427251,  933773339, 1569561259]
     dict = {}
+
+    # параметры
+    timeOnAir = 119000
+    # timeOnAir += 1000
+    # step = 6999923
+    # step = 6999440
+    # step = 7000560
+    step = 7000000
+    i = 9
+    part = timeOnAir / i
 
     # цикл по лог файлам
     for k in range(len(namesOfLog)):
-        # begin = 288014035
-        # end = 1569561259
-        # nameOfLog = 'syslog_7_SF7'
+        # begin = 208178579
+        # end = 1271427251
+        # nameOfLog = 'syslog_22_SF7'
 
         begin = begins[k]
         end = ends[k]
         nameOfLog = namesOfLog[k]
 
         print(nameOfLog)
-        # параметры
-        timeOnAir = 119000
-        # timeOnAir += 14500
-        # step = 6999923
-        # step = 6999440
-        # step = 7000560
-        step = 7000000
-        i = 9
 
         # парсинг
         devicesTimestampsSuccess, devicesTimestampsFail = parse(nameOfLog, 'out', step, begin, end)
@@ -196,15 +220,9 @@ if __name__ == "__main__":
 
         # prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
 
-        # d1 = devicesTimestampsSuccess["0160082E SF7BW125"]
-        # d1.extend(devicesTimestampsFail["0160082E SF7BW125"])
-        # d1.sort()
-        #
-        # d2 = devicesTimestampsSuccess["01470B21 SF7BW125"]
-        # d2.extend(devicesTimestampsFail["01470B21 SF7BW125"])
-        # d2.sort()
-        #
-        # comparisonTwoDevice(d1,d2)
+        # comparisonTwoDevice("0160082E SF7BW125","01470B21 SF7BW125", devicesTimestampsSuccess, devicesTimestampsFail )
+
+        # periodForDevice("0055013D SF7BW125",devicesTimestampsSuccess)
 
         # exit(0)
 
@@ -227,8 +245,6 @@ if __name__ == "__main__":
         ultimateDictionarySucces = {}
         ultimateDictionaryFail = {}
 
-        part = timeOnAir / i
-
         for n in range(2):
             if n == 0:
                 continue
@@ -238,7 +254,7 @@ if __name__ == "__main__":
             # цикл по устройствам
             for key in devicesTimestampsSuccess:
                 ultimateDictionarySucces[key] = set()
-                # цикл по успешним TimeStamp'ам
+                # цикл по успешным TimeStamp'ам
                 for entry in devicesTimestampsSuccess[key]:
                     # получение точного значения Xi
                     currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
@@ -255,10 +271,12 @@ if __name__ == "__main__":
                         if entry in AllFailMessages:
                             AllFailMessages.remove(entry)
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # округление Xi до участка
                         j = 0
                         while abs(currX) > part * (j + 1):
                             j = j + 1
                         res = round((j + 1) * part, 1)
+                        # увеличение событий для участка
                         if currX < 0:
                             res *= -1
                         if dict.get(res) == None:
@@ -266,29 +284,32 @@ if __name__ == "__main__":
                         else:
                             dict[res][0] += 1
 
-            for key in devicesTimestampsFail:
                 ultimateDictionaryFail[key] = set()
+                # цикл по пропушенным TimeStamp'ам
                 for entry in devicesTimestampsFail[key]:
+                    # получение точного значения Xi
                     currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
                     if currX != timeOnAir + 1:
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # добавление в список пересечений по утройствам
                         ultimateDictionaryFail[key].add(device)
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # удаление  TimeStamp'ов из общего списка  TimeStamp'ов
                         if entry in AllSuccessMessages:
                             AllSuccessMessages.remove(entry)
 
                         if entry in AllFailMessages:
                             AllFailMessages.remove(entry)
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+                        # округление Xi до участка
                         j = 0
                         while abs(currX) > part * (j + 1):
                             j = j + 1
                         res = round((j + 1) * part, 1)
                         if currX < 0:
                             res *= -1
-
+                        # увеличение событий для участка
                         if dict.get(res) == None:
                             dict[res] = [0, 1]
                         else:
@@ -311,6 +332,7 @@ if __name__ == "__main__":
                 print(key, ultimateDictionaryFail[key])
         print()
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # вывод таймстемпов по устройствам для которых не найдено пересечений
         devicesTimestampsFailNoCross = {}
         for item in AllFailMessages:
             for key in devicesTimestampsFail:
@@ -368,3 +390,19 @@ if __name__ == "__main__":
         plt.savefig("n={} packets new.png".format(n))
         # plt.show()
         plt.clf()
+
+
+
+
+
+mu, sigma = 100, 15
+x = mu + sigma * np.random.randn(10000)
+bins = [0, 40, 60, 75, 90, 110, 125, 140, 160, 200]
+hist, bins = np.histogram(x, bins=bins)
+width = np.diff(bins)
+center = (bins[:-1] + bins[1:]) / 2
+
+fig, ax = plt.subplots(figsize=(8,3))
+ax.bar(center, hist, align='center', width=width)
+ax.set_xticks(bins)
+fig.savefig("11111.png")
