@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import random
 import math
 
-packetForPrint = -1
+packetForPrint = 1562430987
 
 countMes1 = 0
 countMes2 = 0
@@ -139,140 +139,165 @@ def comparisonTwoDevice(d1, d2):
         print("\t",d1[i] - d2[i])
 
 
-
-# выявить пересечения для определенного устройства
-
-# счет вероятности передачи взять число передач и успешные поделить на общее число
 # выявить устройства которые не передают но и не пересекаются
-# по сути пары устройств обнаружить 
-
-# вывести пакеты для которых найдено пересечение
-
+# по сути пары устройств обнаружить
 
 # посмотреть ошибку интерполяции
 # увеличить время передачи на ошибку интерполяции
 # вывести пересечение по устройству к устройству
 # усреднениние
 # фотки
-# интерполяуия + -
+# интерполяции + -
+# пересечение в конце
+# усреднить до 300
 
 if __name__ == "__main__":
-    timeOnAir = 119000
-    # timeOnAir += 560 * 212
-    begin = 880237045
-    end = 2364649075
-    step = 6999440
-    # step = 7000560
-    # step = 7000000
-    i = 9
-    # nameOfLog = 'syslog_15_SF8_21_SF7_00'
-    nameOfLog = 'syslog_22_SF7'
-    devicesTimestampsSuccess, devicesTimestampsFail = parse(nameOfLog, 'out', step, begin, end)
 
-    for key in devicesTimestampsSuccess:
-        # print(key)
-        devicesTimestampsSuccess[key] = [int(entry) for entry in devicesTimestampsSuccess[key]]
-        devicesTimestampsFail[key] = [int(entry) for entry in devicesTimestampsFail[key]]
+    namesOfLog = ['syslog_22_SF7', 'syslog_36_SF7', 'syslog_31_SF7', 'syslog_14_SF7', 'syslog_7_SF7']
+    begins = [208178579, 236069347, 234342595, 113778867, 288014035, 75422971]
+    ends = [1271427251, 1139027235, 1482759195, 933773339, 1569561259, 838386019]
+    dict = {}
 
-    numOfDevices = 0
-    splitName = nameOfLog.split('_')
-    for itmp in splitName:
-        if itmp.isdigit():
-            numOfDevices += int(itmp)
+    # цикл по лог файлам
+    for k in range(len(namesOfLog)):
+        # begin = 288014035
+        # end = 1569561259
+        # nameOfLog = 'syslog_7_SF7'
 
-    # prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
+        begin = begins[k]
+        end = ends[k]
+        nameOfLog = namesOfLog[k]
 
-    d1 = devicesTimestampsSuccess["005F0143 SF7BW125"]
-    d1.extend(devicesTimestampsFail["005F0143 SF7BW125"])
-    d1.sort()
+        print(nameOfLog)
+        # параметры
+        timeOnAir = 119000
+        # timeOnAir += 14500
+        # step = 6999923
+        # step = 6999440
+        # step = 7000560
+        step = 7000000
+        i = 9
 
-    d2 = devicesTimestampsSuccess["01470B21 SF7BW125"]
-    d2.extend(devicesTimestampsFail["01470B21 SF7BW125"])
-    d2.sort()
+        # парсинг
+        devicesTimestampsSuccess, devicesTimestampsFail = parse(nameOfLog, 'out', step, begin, end)
 
-    # comparisonTwoDevice(d1,d2)
-
-    # exit(0)
-
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # для вывода всех пакетов без пересечения
-    AllSuccessMessages = []
-    AllFailMessages = []
-    for key in devicesTimestampsSuccess:
-        AllFailMessages.extend(devicesTimestampsFail[key])
-        AllSuccessMessages.extend(devicesTimestampsSuccess[key])
-
-    print("all message in success and fail")
-    print(len(AllSuccessMessages), AllSuccessMessages)
-    print(len(AllFailMessages), AllFailMessages)
-
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-    ultimateDictionarySucces = {}
-    ultimateDictionaryFail = {}
-
-    part = timeOnAir / i
-
-    for n in range(2):
-        if n == 0:
-            continue
-        if n == 2:
-            part = timeOnAir
-        dict = {}
+        # преобразование к инту
         for key in devicesTimestampsSuccess:
-            ultimateDictionarySucces[key] = set()
-            for entry in devicesTimestampsSuccess[key]:
-                currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
-                if currX != timeOnAir + 1:
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    ultimateDictionarySucces[key].add(device)
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    if entry in AllSuccessMessages:
-                        AllSuccessMessages.remove(entry)
+            # print(key)
+            devicesTimestampsSuccess[key] = [int(entry) for entry in devicesTimestampsSuccess[key]]
+            devicesTimestampsFail[key] = [int(entry) for entry in devicesTimestampsFail[key]]
 
-                    if entry in AllFailMessages:
-                        AllFailMessages.remove(entry)
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    j = 0
-                    while abs(currX) > part * (j + 1):
-                        j = j + 1
-                    res = round((j + 1) * part, 1)
-                    if currX < 0:
-                        res *= -1
-                    if dict.get(res) == None:
-                        dict[res] = [1, 0]
-                    else:
-                        dict[res][0] += 1
+        # Подсчет утройст по имени файла
+        numOfDevices = 0
+        splitName = nameOfLog.split('_')
+        for itmp in splitName:
+            if itmp.isdigit():
+                numOfDevices += int(itmp)
 
-        for key in devicesTimestampsFail:
-            ultimateDictionaryFail[key] = set()
-            for entry in devicesTimestampsFail[key]:
-                currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
-                if currX != timeOnAir + 1:
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    ultimateDictionaryFail[key].add(device)
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    if entry in AllSuccessMessages:
-                        AllSuccessMessages.remove(entry)
+        # prob(devicesTimestampsSuccess, devicesTimestampsFail, numOfDevices)
 
-                    if entry in AllFailMessages:
-                        AllFailMessages.remove(entry)
-                    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # d1 = devicesTimestampsSuccess["0160082E SF7BW125"]
+        # d1.extend(devicesTimestampsFail["0160082E SF7BW125"])
+        # d1.sort()
+        #
+        # d2 = devicesTimestampsSuccess["01470B21 SF7BW125"]
+        # d2.extend(devicesTimestampsFail["01470B21 SF7BW125"])
+        # d2.sort()
+        #
+        # comparisonTwoDevice(d1,d2)
 
-                    j = 0
-                    while abs(currX) > part * (j + 1):
-                        j = j + 1
-                    res = round((j + 1) * part, 1)
-                    if currX < 0:
-                        res *= -1
+        # exit(0)
 
-                    if dict.get(res) == None:
-                        dict[res] = [0, 1]
-                    else:
-                        dict[res][1] += 1
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # для вывода всех пакетов без пересечения
+        # общий список  TimeStamp'ов успешных и нет
+        AllSuccessMessages = []
+        AllFailMessages = []
+        for key in devicesTimestampsSuccess:
+            AllFailMessages.extend(devicesTimestampsFail[key])
+            AllSuccessMessages.extend(devicesTimestampsSuccess[key])
+
+        print("all message in success and fail")
+        print(len(AllSuccessMessages), AllSuccessMessages)
+        print(len(AllFailMessages), AllFailMessages)
+
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        # словари для записи Устройство - С каким утройствами пересекается
+        ultimateDictionarySucces = {}
+        ultimateDictionaryFail = {}
+
+        part = timeOnAir / i
+
+        for n in range(2):
+            if n == 0:
+                continue
+            if n == 2:
+                part = timeOnAir
+
+            # цикл по устройствам
+            for key in devicesTimestampsSuccess:
+                ultimateDictionarySucces[key] = set()
+                # цикл по успешним TimeStamp'ам
+                for entry in devicesTimestampsSuccess[key]:
+                    # получение точного значения Xi
+                    currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
+                    if currX != timeOnAir + 1:
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # добавление в список пересечений по утройствам
+                        ultimateDictionarySucces[key].add(device)
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # удаление  TimeStamp'ов из общего списка  TimeStamp'ов
+                        if entry in AllSuccessMessages:
+                            AllSuccessMessages.remove(entry)
+
+                        if entry in AllFailMessages:
+                            AllFailMessages.remove(entry)
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        j = 0
+                        while abs(currX) > part * (j + 1):
+                            j = j + 1
+                        res = round((j + 1) * part, 1)
+                        if currX < 0:
+                            res *= -1
+                        if dict.get(res) == None:
+                            dict[res] = [1, 0]
+                        else:
+                            dict[res][0] += 1
+
+            for key in devicesTimestampsFail:
+                ultimateDictionaryFail[key] = set()
+                for entry in devicesTimestampsFail[key]:
+                    currX, device = getXiMostSign(key, entry, devicesTimestampsSuccess, devicesTimestampsFail, timeOnAir)
+                    if currX != timeOnAir + 1:
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        ultimateDictionaryFail[key].add(device)
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        if entry in AllSuccessMessages:
+                            AllSuccessMessages.remove(entry)
+
+                        if entry in AllFailMessages:
+                            AllFailMessages.remove(entry)
+                        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                        j = 0
+                        while abs(currX) > part * (j + 1):
+                            j = j + 1
+                        res = round((j + 1) * part, 1)
+                        if currX < 0:
+                            res *= -1
+
+                        if dict.get(res) == None:
+                            dict[res] = [0, 1]
+                        else:
+                            dict[res][1] += 1
+
+
+
+
+
 
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         print("message without cross in success and fail")
@@ -300,46 +325,46 @@ if __name__ == "__main__":
             print(key,len(devicesTimestampsFailNoCross[key]), devicesTimestampsFailNoCross[key])
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-        print('\nn = ' + str(n))
-        if n == 1:
-            # вывод кол-ва в промежутке
-            resStr = ''
-            Pr = []
-            Xi = []
-            N_message = []
+    print('\nn = ' + str(n))
+    if n == 1:
+        # вывод кол-ва в промежутке
+        resStr = ''
+        Pr = []
+        Xi = []
+        N_message = []
 
-            for item in np.arange(-timeOnAir, timeOnAir + 1, part):
-                item = round(item, 1)
-                if item == 0:
-                    continue
-                if dict.get(item) != None:
-                    PrCurr = dict[item][0] / (dict[item][0] + dict[item][1])
-                    Pr.append(PrCurr)
-                    N_message.append(dict[item][0] + dict[item][1])
-                    # Xi.append(str(item))
-                    Xi.append(item)
-                    print('Pr[success | ' + str(item) + '] = ' + str(PrCurr) + ' Success: ' + str(
-                        dict[item][0]) + ' Fail: ' + str(dict[item][1]))
-                    countMes1 += dict[item][1]
-                else:
-                    Pr.append(0)
-                    N_message.append(0)
-                    # Xi.append(str(item))
-                    Xi.append(item)
-                    print('Pr[success | ' + str(item) + '] = 0 Success: 0 Fail: 0')
-            print(countMes1)
-            plt.plot(Xi, Pr, color="g", label='probability')
-            plt.xlabel('Xi')
-            plt.ylabel('Pr[success]')
-            plt.legend()
-            plt.savefig("n={} probabilities new.png".format(n))
-            # plt.show()
-            plt.clf()
+        for item in np.arange(-timeOnAir, timeOnAir + 1, part):
+            item = round(item, 1)
+            if item == 0:
+                continue
+            if dict.get(item) != None:
+                PrCurr = dict[item][0] / (dict[item][0] + dict[item][1])
+                Pr.append(PrCurr)
+                N_message.append(dict[item][0] + dict[item][1])
+                # Xi.append(str(item))
+                Xi.append(item)
+                print('Pr[success | ' + str(item) + '] = ' + str(PrCurr) + ' Success: ' + str(
+                    dict[item][0]) + ' Fail: ' + str(dict[item][1]))
+                countMes1 += dict[item][1]
+            else:
+                Pr.append(0)
+                N_message.append(0)
+                # Xi.append(str(item))
+                Xi.append(item)
+                print('Pr[success | ' + str(item) + '] = 0 Success: 0 Fail: 0')
+        print(countMes1)
+        plt.plot(Xi, Pr, color="g", label='probability')
+        plt.xlabel('Xi')
+        plt.ylabel('Pr[success]')
+        plt.legend()
+        plt.savefig("n={} probabilities new.png".format(n))
+        # plt.show()
+        plt.clf()
 
-            plt.plot(Xi, N_message, color="g", label='packet')
-            plt.xlabel('Xi')
-            plt.ylabel('NumOfMessage')
-            plt.legend()
-            plt.savefig("n={} packets new.png".format(n))
-            # plt.show()
-            plt.clf()
+        plt.plot(Xi, N_message, color="g", label='packet')
+        plt.xlabel('Xi')
+        plt.ylabel('NumOfMessage')
+        plt.legend()
+        plt.savefig("n={} packets new.png".format(n))
+        # plt.show()
+        plt.clf()

@@ -35,39 +35,40 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
     fieldnames = ['id device',   'num of message', 'timestamps']
     data = [' '] * 3
     res_list = []
-    devicesSuccesTimestamps = {}
-    lostDevicesSuccesTimestamps = {}
-    devicesFailTimestamps = {}
-    devicesLastGetNumOfMessage = {}
-    currDevice = []
-    numOfCurrMessage = []
 
-    interpolError = []
+
+    devicesSuccesTimestamps = {} # словарь id устройства и список timeStamp'ов
+    devicesFailTimestamps = {} # словарь id устройства и список интерполированных timeStamp'ов
+    devicesLastGetNumOfMessage = {} # словарь id устройства и номер последнего сообщения
+
+    lostDevicesSuccesTimestamps = {} # словарь id устройства которое не попало в промежуток и список его timeStamp'ов
+
+    currDevice = [] # список id устройств под обработку
+    numOfCurrMessage = [] # список номеров пакетов этих id устройств
+
+    interpolError = [] # список ошибок интерполяции
+    maxError = 0 # максимальная ошибка интерполяции по абс величине
 
     f = open(inputFile)
-    for line in f:
-        if line.find("fcnt") != -1:
-            # currDevice = line.split(' ')[-2]
-            # numOfCurrMessage = int(line.split(' ')[-1].split('=')[-1][:-2])
+    for line in f: # проходим весь файл по строчно
+        if line.find("fcnt") != -1: # находим строки с указанием id устройства и номером
+            # добавляем в списки номера и устройства для обработки
             currDevice.append(line.split(' ')[-2])
             numOfCurrMessage.append(int(line.split(' ')[-1].split('=')[-1][:-2]))
             continue
 
-        if line.find("JSON up: {\"rxpk\"") != -1:
+        if line.find("JSON up: {\"rxpk\"") != -1: # находим строки с пакетами
 
             tmp = line.split('JSON up:')
             d = json.loads(tmp[1])
-            # numOfTimestamps = len(d['rxpk'])
-            for packetNum in range(len(d['rxpk'])):
-                # timeStamp = d['rxpk'][-1]['tmst']
+            for packetNum in range(len(d['rxpk'])): # идем по timeStamp'ам найденым в пакете
                 timeStamp = d['rxpk'][packetNum]['tmst']
-                # print(d['rxpk'][packetNum]['tmst'])
+                # проверяем только те timeStamp'ы для которых имеются устройства. TimeStamp'ы без устройств не рассматриваются!
                 if len(currDevice) > packetNum:
                     currDeviceWithSF = currDevice[packetNum] + ' ' + d['rxpk'][packetNum]['datr']
                 else:
-                    # currDeviceWithSF = '-1 ' + d['rxpk'][packetNum]['datr']
                     break
-
+                # проверяем что timeStamp находится в заданном промежутке, если нет добавляем устройство и таймстемп в lostDevicesSuccesTimestamps
                 if timeStamp < beginTimestamp or timeStamp > endTimestamp:
                     if devicesSuccesTimestamps.get(currDeviceWithSF) == None:
                         if lostDevicesSuccesTimestamps.get(currDeviceWithSF) == None:
@@ -77,19 +78,29 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
                     continue
 
                 tmpTimeStampInterpol = 0
+                # проверка на пропущенные пакеты
+                # если разница между текущим и последним пакетом больше 1 тогда
+                # добавляем пропущенные пакеты в devicesFailTimestamps
+                # считаем ошибку интерполяции между последним проинтерполированным  и текушим timeStamp'ом
                 if devicesLastGetNumOfMessage.get(currDeviceWithSF) != None and numOfCurrMessage[packetNum] - devicesLastGetNumOfMessage[currDeviceWithSF] != 1:
                     for i in range(numOfCurrMessage[packetNum] - devicesLastGetNumOfMessage[currDeviceWithSF] - 1):
                         devicesFailTimestamps[currDeviceWithSF].append(str((int(devicesSuccesTimestamps[currDeviceWithSF][-1]) + (i+1)*timePeriod)))
                         tmpTimeStampInterpol = int(devicesSuccesTimestamps[currDeviceWithSF][-1]) + (i+1)*timePeriod
                         # print(i)
 
+                # запись ошибки интерполяции и макс ошибки
                 if tmpTimeStampInterpol != 0:
                     # if timePeriod - (timeStamp - tmpTimeStampInterpol) < 0:
                     #     print(timeStamp )
                     #     print(tmpTimeStampInterpol)
                     # print((7000000 - (timeStamp - tmpTimeStampInterpol))/(i+1))
                     interpolError.append((7000000 - (timeStamp - tmpTimeStampInterpol))/(i+1))
+                    if maxError < abs((7000000 - (timeStamp - tmpTimeStampInterpol))):
+                        maxError = abs((7000000 - (timeStamp - tmpTimeStampInterpol)))
 
+                # запись найденного timeStamp'a
+                # запись последнего номера
+                # удаление из списка "не входит в промежуток"
                 if devicesSuccesTimestamps.get(currDeviceWithSF) == None:
                     devicesSuccesTimestamps[currDeviceWithSF] = [str(timeStamp)]
                     devicesLastGetNumOfMessage[currDeviceWithSF] = numOfCurrMessage[packetNum]
@@ -105,7 +116,8 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
 
     f.close()
 
-    print(lostDevicesSuccesTimestamps)
+    # добавление в devicesFailTimestamps устройств из lostDevicesSuccesTimestamps
+    # print(lostDevicesSuccesTimestamps)
     for key in lostDevicesSuccesTimestamps.keys():
         devicesFailTimestamps[key] = []
         devicesSuccesTimestamps[key] = []
@@ -129,8 +141,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
                 if currTimeStamp < endTimestamp:
                     devicesFailTimestamps[key].insert(0,str(currTimeStamp))
 
-
-
+    # Запись в файл devicesSuccesTimestamps
     for key in devicesSuccesTimestamps.keys():
         data[0] = key
         data[1] = str(len(devicesSuccesTimestamps[key]))
@@ -138,7 +149,6 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
         inner_dict = dict(zip(fieldnames, data))
         res_list.append(inner_dict)
     #csv_dict_writer(outputFile + 'Table.csv', fieldnames, res_list)
-
     # print(devicesLastGetNumOfMessage)
     f = open(outputFile + 'SuccessText.txt', 'w')
     for entry in res_list:
@@ -146,10 +156,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
     f.close()
     f = open(outputFile + 'FailText.txt', 'w')
 
-
-
-
-
+    # Интерполяция по краям
     for key in devicesSuccesTimestamps.keys():
         if len(devicesSuccesTimestamps[key]) != 0:
             currDeviceFirstTimeStamp = int(devicesSuccesTimestamps[key][0])
@@ -162,8 +169,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
                 devicesFailTimestamps[key].append(str(currDeviceLastTimeStamp + timePeriod))
                 currDeviceLastTimeStamp = int(devicesFailTimestamps[key][-1])
 
-
-
+    # Запись в файл devicesFailTimestamps
     for key in devicesFailTimestamps.keys():
         tmp = ' '.join(devicesFailTimestamps[key])
         f.write(key + ' ' + str(len(devicesFailTimestamps[key])) + ' ' + tmp + '\n')
@@ -171,5 +177,6 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
 
     print(interpolError)
     print(np.mean(interpolError))
+    print(maxError)
 
     return devicesSuccesTimestamps, devicesFailTimestamps

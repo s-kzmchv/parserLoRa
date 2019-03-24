@@ -7,13 +7,13 @@ numOfMessageByDevice1 = {}
 numOfMessageByDevice2 = {}
 numOfMessageByDevice2Fail = {}
 lastNumOfMessage = {}
-nameOfLog = 'syslog_13_SF8_23_SF7'
 
+
+nameOfLog = 'syslog_13_SF8_23_SF7'
 begin = 52706483
 end = 17035491
 
 flag = False
-
 
 f = open(nameOfLog)
 for line in f:
