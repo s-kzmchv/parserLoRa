@@ -353,6 +353,7 @@ if __name__ == "__main__":
         resStr = ''
         Pr = []
         Xi = []
+        Xi2 = []
         N_message = []
 
         for item in np.arange(-timeOnAir, timeOnAir + 1, part):
@@ -364,7 +365,7 @@ if __name__ == "__main__":
                 Pr.append(PrCurr)
                 N_message.append(dict[item][0] + dict[item][1])
                 # Xi.append(str(item))
-                Xi.append(item)
+
                 print('Pr[success | ' + str(item) + '] = ' + str(PrCurr) + ' Success: ' + str(
                     dict[item][0]) + ' Fail: ' + str(dict[item][1]))
                 countMes1 += dict[item][1]
@@ -372,8 +373,13 @@ if __name__ == "__main__":
                 Pr.append(0)
                 N_message.append(0)
                 # Xi.append(str(item))
-                Xi.append(item)
+                # Xi.append(item)
                 print('Pr[success | ' + str(item) + '] = 0 Success: 0 Fail: 0')
+            Xi.append(item)
+            if item < 0:
+                Xi2.append('[{}, {}]'.format(item, round(item + part, 1)))
+            else:
+                Xi2.append('[{}, {}]'.format(round(item - part, 1), item))
         print(countMes1)
         plt.plot(Xi, Pr, color="g", label='probability')
         plt.xlabel('Xi')
@@ -391,18 +397,27 @@ if __name__ == "__main__":
         # plt.show()
         plt.clf()
 
+        s = N_message
+        x = range(len(s))
+        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        ax = plt.gca()
+        ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
+        ax.set_xticks(x)
+        ax.set_xticklabels(Xi2, fontsize = 12, rotation='vertical')
+        plt.xlabel('Xi')
+        plt.ylabel('NumOfMessage')
+        plt.savefig('hist n= 1 packet.png')
+        plt.clf()
 
-
-
-
-mu, sigma = 100, 15
-x = mu + sigma * np.random.randn(10000)
-bins = [0, 40, 60, 75, 90, 110, 125, 140, 160, 200]
-hist, bins = np.histogram(x, bins=bins)
-width = np.diff(bins)
-center = (bins[:-1] + bins[1:]) / 2
-
-fig, ax = plt.subplots(figsize=(8,3))
-ax.bar(center, hist, align='center', width=width)
-ax.set_xticks(bins)
-fig.savefig("11111.png")
+        s = Pr
+        x = range(len(s))
+        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        ax = plt.gca()
+        ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
+        ax.set_xticks(x)
+        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        plt.xlabel('Xi')
+        plt.ylabel('Pr[success]')
+        plt.savefig('hist n= 1 probabilities.png')
+        plt.clf()
+#

@@ -130,7 +130,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
     for key in devicesSuccesTimestamps.keys():
 
         currTimePeriod = timePeriod
-        if len(devicesSuccesTimestamps[key]) == 1:
+        if (len(devicesSuccesTimestamps[key]) == 1) or (len(devicesSuccesTimestamps[key]) == 2 and int(devicesSuccesTimestamps[key][1]) - int(devicesSuccesTimestamps[key][0]) < 6000000):
             if lostDevicesSuccesTimestamps.get(key) != None:
                 nearest = takeClosest(lostDevicesSuccesTimestamps[key],int(devicesSuccesTimestamps[key][0]))
                 tmpPeriod = abs(nearest - int(devicesSuccesTimestamps[key][0]))
