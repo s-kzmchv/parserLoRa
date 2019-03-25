@@ -191,14 +191,15 @@ if __name__ == "__main__":
     part = timeOnAir / i
 
     # цикл по лог файлам
-    for k in range(len(namesOfLog)):
-        # begin = 208178579
-        # end = 1271427251
-        # nameOfLog = 'syslog_22_SF7'
+    # for k in range(len(namesOfLog)):
+    for k in range(1):
+        begin = 113778867
+        end = 933773339
+        nameOfLog = 'syslog_14_SF7'
 
-        begin = begins[k]
-        end = ends[k]
-        nameOfLog = namesOfLog[k]
+        # begin = begins[k]
+        # end = ends[k]
+        # nameOfLog = namesOfLog[k]
 
         print(nameOfLog)
 
@@ -222,7 +223,7 @@ if __name__ == "__main__":
 
         # comparisonTwoDevice("0160082E SF7BW125","01470B21 SF7BW125", devicesTimestampsSuccess, devicesTimestampsFail )
 
-        # periodForDevice("0055013D SF7BW125",devicesTimestampsSuccess)
+        periodForDevice("0055013D SF7BW125",devicesTimestampsSuccess)
 
         # exit(0)
 
@@ -315,11 +316,6 @@ if __name__ == "__main__":
                         else:
                             dict[res][1] += 1
 
-
-
-
-
-
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         print("message without cross in success and fail")
         print(len(AllSuccessMessages), AllSuccessMessages)
@@ -355,7 +351,7 @@ if __name__ == "__main__":
         Xi = []
         Xi2 = []
         N_message = []
-
+        # идем по промежуткам и выводим вероятности и количества событий
         for item in np.arange(-timeOnAir, timeOnAir + 1, part):
             item = round(item, 1)
             if item == 0:
@@ -381,6 +377,8 @@ if __name__ == "__main__":
             else:
                 Xi2.append('[{}, {}]'.format(round(item - part, 1), item))
         print(countMes1)
+
+        # графики
         plt.plot(Xi, Pr, color="g", label='probability')
         plt.xlabel('Xi')
         plt.ylabel('Pr[success]')

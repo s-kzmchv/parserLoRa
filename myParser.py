@@ -49,7 +49,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
     interpolError = [] # список ошибок интерполяции
     maxError = 0 # максимальная ошибка интерполяции по абс величине
 
-    avrgPeriodForDevice = {}
+    avrgPeriodForDevice = {} # словарь хранит каждое усреднение пропуска по устройтсвам
 
     f = open(inputFile)
     for line in f: # проходим весь файл по строчно
@@ -71,6 +71,7 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
                     currDeviceWithSF = currDevice[packetNum] + ' ' + d['rxpk'][packetNum]['datr']
                 else:
                     break
+
                 # проверяем что timeStamp находится в заданном промежутке, если нет добавляем устройство и таймстемп в lostDevicesSuccesTimestamps
                 if timeStamp < beginTimestamp or timeStamp > endTimestamp:
                     if lostDevicesSuccesTimestamps.get(currDeviceWithSF) == None:
@@ -110,13 +111,10 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
 
                 # запись найденного timeStamp'a
                 # запись последнего номера
-                # удаление из списка "не входит в промежуток"
                 if devicesSuccesTimestamps.get(currDeviceWithSF) == None:
                     devicesSuccesTimestamps[currDeviceWithSF] = [str(timeStamp)]
                     devicesLastGetNumOfMessage[currDeviceWithSF] = numOfCurrMessage[packetNum]
                     devicesFailTimestamps[currDeviceWithSF] = []
-                    # if lostDevicesSuccesTimestamps.get(currDeviceWithSF) != None:
-                    #     lostDevicesSuccesTimestamps.pop(currDeviceWithSF)
                 else:
                     devicesSuccesTimestamps[currDeviceWithSF].append(str(timeStamp))
                     devicesLastGetNumOfMessage[currDeviceWithSF] = numOfCurrMessage[packetNum]
@@ -128,25 +126,27 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
 
     # Интерполяция по краям
     for key in devicesSuccesTimestamps.keys():
-
-        currTimePeriod = timePeriod
+        currTimePeriod = timePeriod # стандартный период
+        #  если слишком мало значений успешной передачи и по ним нельзя определить новый период
         if (len(devicesSuccesTimestamps[key]) == 1) or (len(devicesSuccesTimestamps[key]) == 2 and int(devicesSuccesTimestamps[key][1]) - int(devicesSuccesTimestamps[key][0]) < 6000000):
+            # пытаемся определить новый период по таймстемпам за границей промежутку
             if lostDevicesSuccesTimestamps.get(key) != None:
                 nearest = takeClosest(lostDevicesSuccesTimestamps[key],int(devicesSuccesTimestamps[key][0]))
                 tmpPeriod = abs(nearest - int(devicesSuccesTimestamps[key][0]))
                 if tmpPeriod> 6000000 and tmpPeriod < 80000000:
                     currTimePeriod = tmpPeriod
         else:
+            # если достаточно значений успешной передачи
             currTimePeriods = []
             for i in range(len(devicesSuccesTimestamps[key]) - 1):
                 if (int(devicesSuccesTimestamps[key][i + 1]) - int(devicesSuccesTimestamps[key][i]) < 8000000 and int(devicesSuccesTimestamps[key][i + 1]) - int(devicesSuccesTimestamps[key][i]) > 6000000):
                     currTimePeriods.append(int(devicesSuccesTimestamps[key][i + 1]) - int(devicesSuccesTimestamps[key][i]))
-
+            # берем среднее между соседними успешно переданными таймстемпами или берем среднее по промежтукам промущенных пакетов
             if len(currTimePeriods) == 0:
                 currTimePeriod = int(np.mean(avrgPeriodForDevice[key]))
             else:
                 currTimePeriod = int(np.mean(currTimePeriods))
-
+        # интерполируем края с полученным периодом
         if len(devicesSuccesTimestamps[key]) != 0:
             currDeviceFirstTimeStamp = int(devicesSuccesTimestamps[key][0])
             while currDeviceFirstTimeStamp - currTimePeriod > beginTimestamp:
@@ -159,24 +159,21 @@ def parse(inputFile, outputFile,timePeriod,beginTimestamp,endTimestamp):
                 currDeviceLastTimeStamp = int(devicesFailTimestamps[key][-1])
 
     # добавление в devicesFailTimestamps устройств из lostDevicesSuccesTimestamps
-    # print(lostDevicesSuccesTimestamps)
     for key in lostDevicesSuccesTimestamps.keys():
         if key in devicesFailTimestamps.keys():
             continue
-
-        currTimePeriod = timePeriod
+        currTimePeriod = timePeriod # стандартный период 7000000
         # print(lostDevicesSuccesTimestamps[key])
+        # пытаемся получить преоид из таймстемпов выходящих за границы рассматриваемого промежутка
         if len(lostDevicesSuccesTimestamps[key]) > 1:
             currTimePeriods = []
             for i in range(len(lostDevicesSuccesTimestamps[key]) - 1):
                 if (lostDevicesSuccesTimestamps[key][i + 1] - lostDevicesSuccesTimestamps[key][i] < 8000000 and lostDevicesSuccesTimestamps[key][i + 1] - lostDevicesSuccesTimestamps[key][i] > 6000000):
-                    currTimePeriods.append(
-                        lostDevicesSuccesTimestamps[key][i + 1] - lostDevicesSuccesTimestamps[key][i])
-
-
+                    currTimePeriods.append(lostDevicesSuccesTimestamps[key][i + 1] - lostDevicesSuccesTimestamps[key][i])
+                    # currTimePeriod = lostDevicesSuccesTimestamps[key][i + 1] - lostDevicesSuccesTimestamps[key][i]
+                    # break
             if len(currTimePeriods) != 0:
                 currTimePeriod = int(np.mean(currTimePeriods))
-
 
         devicesFailTimestamps[key] = []
         devicesSuccesTimestamps[key] = []
