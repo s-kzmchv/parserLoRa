@@ -85,10 +85,9 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
     currX = timeOnAir + 1
     numOfCross = 0
     device = ' '
-    flagForSecondMessage = True
     for currDevice in devicesTimestampsSuccess:
         if numOfCross > 1:
-            return timeOnAir + 1, ' ', False
+            return timeOnAir + 1, ' '
         if keyDevice == currDevice:
             continue
         if len(devicesTimestampsSuccess[currDevice]) == 0:
@@ -105,14 +104,13 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
             currX = x
             numOfCross += 1
             device = currDevice
-            flagForSecondMessage = True
 
     if packet == packetForPrint:
         print()
 
     for currDevice in devicesTimestampsFail:
         if numOfCross > 1:
-            return timeOnAir + 1, ' ', False
+            return timeOnAir + 1, ' '
         if keyDevice == currDevice:
             continue
         if len(devicesTimestampsFail[currDevice]) == 0:
@@ -129,12 +127,11 @@ def getXiOne(keyDevice, packet,devicesTimestampsSuccess, devicesTimestampsFail, 
                 currX = x
                 numOfCross += 1
                 device = currDevice
-                flagForSecondMessage = False
 
     if currX != timeOnAir + 1 and packet == packetForPrint:
         print()
         print('YES ' + str(packet) +' + ' + str(currX) + ' = ' + str(packet+currX))
-    return currX, device, flagForSecondMessage
+    return currX, device
 
 def comparisonTwoDevice(d1name, d2name, devicesTimestampsSuccess, devicesTimestampsFail):
     d1 = devicesTimestampsSuccess[d1name].copy()
@@ -181,16 +178,17 @@ def periodForDevice(dname, devicesTimestampsSuccess):
 
 if __name__ == "__main__":
 
-    namesOfLog = ['syslog_22_SF7',  'syslog_14_SF7', 'syslog_7_SF7']
-    begins = [208178579, 113778867, 288014035]
-    ends = [1271427251,  933773339, 1569561259]
+    # namesOfLog = ['syslog_7_SF7_0',  'syslog_7_SF7_00',  'syslog_7_SF7_000', 'syslog_7_SF7_00000',  'syslog_14_SF7_0',  'syslog_14_SF7_00', 'syslog_14_SF7_000', 'syslog_14_SF7_0000', 'syslog_14_SF7_00000', 'syslog_22_SF7_0', 'syslog_22_SF7_00', 'syslog_22_SF7_000','syslog_22_SF7_0000']
+    namesOfLog = ['syslog_7_SF7_0',  'syslog_7_SF7_00',  'syslog_7_SF7_000', 'syslog_7_SF7_00000',  'syslog_14_SF7_0',  'syslog_14_SF7_00', 'syslog_14_SF7_000', 'syslog_14_SF7_0000', 'syslog_14_SF7_00000', 'syslog_22_SF7_0', 'syslog_22_SF7_000','syslog_22_SF7_0000', 'syslog_14_SF7_000000', 'syslog_22_SF7_00000']
+    begins = [115833235, 171860499,  78059475, 70121051, 107148011, 80955547, 78857131, 113093091, 100411091, 92352043, 122398419,276240587,343876171, 205792435 ]
+    ends = [1182529627,  944449067, 750503979, 847084843, 786749739, 790269979, 871633803, 833788619, 952236787, 835650547, 850364371, 1121087771,1123225667, 921964619 ]
     dict = {}
     dictBoth = {}
     dictNone = {}
     dictOne = {}
     dictTwo = {}
     # параметры
-    timeOnAir = 119000
+    timeOnAir = 1190000
     # timeOnAir += 1000
     # step = 6999923
     # step = 6999440
@@ -489,6 +487,6 @@ if __name__ == "__main__":
         ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
         plt.xlabel('Xi')
         plt.ylabel('Pr[success]')
-        plt.savefig('hist n= 1 probabilities2.png')
+        plt.savefig('hist n= 1 probabilities.png')
         plt.clf()
 #
