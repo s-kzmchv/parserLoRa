@@ -190,7 +190,7 @@ if __name__ == "__main__":
     dictOne = {}
     dictTwo = {}
     # параметры
-    timeOnAir = 119000
+    timeOnAir = 118020
     # timeOnAir += 1000
     # step = 6999923
     # step = 6999440
@@ -443,6 +443,7 @@ if __name__ == "__main__":
                 Xi2.append('[{}, {}]'.format(round(item - part, 1), item))
         print(countMes1)
 
+        Xi3 = ['-99.9%', '-88.8%', '-77.7%', '-66.6%', '-55.5%', '-44.4%', '-33.3%', '-22.2%', '-11.1%', '11.1%', '22.2%', '33.3%', '44.4%', '55.5%', '66.6%', '77.7%', '88.8%', '99.9%']
         # графики
         plt.plot(Xi, Pr, color="black", label='probability')
         plt.plot(Xi, PrBoth, color="r", label='[1|1]')
@@ -470,11 +471,13 @@ if __name__ == "__main__":
         # Гистограммы
         s = N_message
         x = range(len(s))
-        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        # plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        plt.figure(figsize=(16, 4))
         ax = plt.gca()
         ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
         ax.set_xticks(x)
-        ax.set_xticklabels(Xi2, fontsize = 12, rotation='vertical')
+        # ax.set_xticklabels(Xi2, fontsize = 12, rotation='vertical')
+        ax.set_xticklabels(Xi3, fontsize=12)
         plt.xlabel('Xi')
         plt.ylabel('NumOfMessage')
         plt.savefig('hist n= 1 packet.png')
@@ -482,11 +485,13 @@ if __name__ == "__main__":
 
         s = Pr
         x = range(len(s))
-        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        # plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        plt.figure(figsize=(16, 4))
         ax = plt.gca()
         ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
         ax.set_xticks(x)
-        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        # ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        ax.set_xticklabels(Xi3, fontsize=12)
         plt.xlabel('Xi')
         plt.ylabel('Pr[success]')
         plt.savefig('hist n= 1 probabilities.png')
@@ -494,50 +499,58 @@ if __name__ == "__main__":
 
         s = PrNone
         x = range(len(s))
-        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        # plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        plt.figure(figsize=(16, 4))
         ax = plt.gca()
         ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
         ax.set_xticks(x)
-        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        # ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        ax.set_xticklabels(Xi3, fontsize=12)
         plt.xlabel('Xi')
         plt.ylabel('Pr[0|0]')
-        plt.savefig('[0|0] hist n= 1 .png')
+        plt.savefig('[0,0] hist n= 1.png')
         plt.clf()
 
         s = PrOne
         x = range(len(s))
-        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        # plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        plt.figure(figsize=(16, 4))
         ax = plt.gca()
         ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
         ax.set_xticks(x)
-        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        # ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        ax.set_xticklabels(Xi3, fontsize=12)
         plt.xlabel('Xi')
         plt.ylabel('Pr[1|0]')
-        plt.savefig('[1|0] hist n= 1 .png')
+        plt.savefig('[1,0] hist n= 1.png')
         plt.clf()
 
         s = PrBoth
         x = range(len(s))
-        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        # plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        plt.figure(figsize=(16, 4))
         ax = plt.gca()
         ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
         ax.set_xticks(x)
-        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        # ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        ax.set_xticklabels(Xi3, fontsize=12)
         plt.xlabel('Xi')
         plt.ylabel('Pr[1|1]')
-        plt.savefig('[1|1] hist n= 1 .png')
+        plt.savefig('[1,1] hist n= 1.png')
         plt.clf()
 
         s = PrTwo
         x = range(len(s))
-        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        # plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        plt.figure(figsize=(16, 4))
         ax = plt.gca()
         ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
         ax.set_xticks(x)
-        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        # ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        ax.set_xticklabels(Xi3, fontsize=12)
         plt.xlabel('Xi')
         plt.ylabel('Pr[0|1]')
-        plt.savefig('[0|1]hist n= 1 probabilities2.png')
+        plt.savefig('[0,1]hist n= 1.png')
         plt.clf()
 
 #
