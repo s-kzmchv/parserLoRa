@@ -489,6 +489,57 @@ if __name__ == "__main__":
         ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
         plt.xlabel('Xi')
         plt.ylabel('Pr[success]')
-        plt.savefig('hist n= 1 probabilities2.png')
+        plt.savefig('hist n= 1 probabilities.png')
         plt.clf()
+
+        s = PrNone
+        x = range(len(s))
+        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        ax = plt.gca()
+        ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
+        ax.set_xticks(x)
+        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        plt.xlabel('Xi')
+        plt.ylabel('Pr[0|0]')
+        plt.savefig('[0|0] hist n= 1 .png')
+        plt.clf()
+
+        s = PrOne
+        x = range(len(s))
+        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        ax = plt.gca()
+        ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
+        ax.set_xticks(x)
+        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        plt.xlabel('Xi')
+        plt.ylabel('Pr[1|0]')
+        plt.savefig('[1|0] hist n= 1 .png')
+        plt.clf()
+
+        s = PrBoth
+        x = range(len(s))
+        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        ax = plt.gca()
+        ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
+        ax.set_xticks(x)
+        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        plt.xlabel('Xi')
+        plt.ylabel('Pr[1|1]')
+        plt.savefig('[1|1] hist n= 1 .png')
+        plt.clf()
+
+        s = PrTwo
+        x = range(len(s))
+        plt.figure(figsize=(8, 8)).subplots_adjust(bottom=0.3)
+        ax = plt.gca()
+        ax.bar(x, s)  # align='edge' - выравнивание по границе, а не по центру
+        ax.set_xticks(x)
+        ax.set_xticklabels(Xi2, fontsize=12, rotation='vertical')
+        plt.xlabel('Xi')
+        plt.ylabel('Pr[0|1]')
+        plt.savefig('[0|1]hist n= 1 probabilities2.png')
+        plt.clf()
+
+#
+
 #
